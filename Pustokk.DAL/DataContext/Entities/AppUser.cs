@@ -1,19 +1,19 @@
-﻿
-using Microsoft.AspNetCore.Identity;
-using Pustokk.DAL.DataContext.Enum;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity;
 
-namespace Pustokk.DAL.DataContext.Entities
+namespace Pustokk.DAL.DataContext.Entities;
+
+public class AppUser : IdentityUser
 {
-    public class AppUser : IdentityUser
-    {
-        public string? FullName { get; set; }
-        public RoleType UserRole { get; set; }
+    public ICollection<BasketItem>? BasketItems { get; set; }
+     public bool IsSubscribed { get; set; }
+    public bool IsActive { get; set; }
 
+    public string? FullName { get; set; }
+
+    //ctorla bagli object initilaze edir
+    public AppUser()
+    {
+        BasketItems = new List<BasketItem>();
     }
+
 }

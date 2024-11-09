@@ -1,3 +1,5 @@
+using Pustokk.DAL;
+
 namespace Pustokk.MVC
 {
     public class Program
@@ -6,8 +8,12 @@ namespace Pustokk.MVC
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            
             builder.Services.AddControllersWithViews();
+            //for DAL
+            builder.Services.AddDalServices(builder.Configuration);
+
+
 
             var app = builder.Build();
 

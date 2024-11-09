@@ -1,5 +1,4 @@
 ﻿using Pustokk.DAL.DataContext.Entities.Common;
-
 namespace Pustokk.DAL.DataContext.Entities;
 
 public class Slider : BaseEntity
@@ -10,4 +9,5 @@ public class Slider : BaseEntity
     public string? ButtonText { get; set; }
     //public string Link { get; set; } //buttona basanda getdiyi sehife ucun
     public bool IsActive { get; set; }
+
 }
