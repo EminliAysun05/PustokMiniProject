@@ -9,6 +9,9 @@ namespace Pustokk.DAL.DataContext.Entities
 {
     public class Setting : BaseEntity
     {
+        public required string Adress {  get; set; }
+        public required string Phone { get; set; }
+        public required string Mail { get; set; }
         public required string Key { get; set; }
         public required string Value { get; set; }
     }

@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{61179C70-12BB-4085-8B37-75A9F59B645F}|Pustokk.DAL\\Pustokk.DAL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.dal\\datacontext\\entities\\subscribe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61179C70-12BB-4085-8B37-75A9F59B645F}|Pustokk.DAL\\Pustokk.DAL.csproj|solutionrelative:pustokk.dal\\datacontext\\entities\\subscribe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61179C70-12BB-4085-8B37-75A9F59B645F}|Pustokk.DAL\\Pustokk.DAL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.dal\\datacontext\\entities\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61179C70-12BB-4085-8B37-75A9F59B645F}|Pustokk.DAL\\Pustokk.DAL.csproj|solutionrelative:pustokk.dal\\datacontext\\entities\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{61179C70-12BB-4085-8B37-75A9F59B645F}|Pustokk.DAL\\Pustokk.DAL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.dal\\datacontext\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61179C70-12BB-4085-8B37-75A9F59B645F}|Pustokk.DAL\\Pustokk.DAL.csproj|solutionrelative:pustokk.dal\\datacontext\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,16 +31,8 @@
       "RelativeMoniker": "D:0:0:{61179C70-12BB-4085-8B37-75A9F59B645F}|Pustokk.DAL\\Pustokk.DAL.csproj|solutionrelative:pustokk.dal\\datacontext\\enum\\roletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61179C70-12BB-4085-8B37-75A9F59B645F}|Pustokk.DAL\\Pustokk.DAL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.dal\\datacontext\\entities\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61179C70-12BB-4085-8B37-75A9F59B645F}|Pustokk.DAL\\Pustokk.DAL.csproj|solutionrelative:pustokk.dal\\datacontext\\entities\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{61179C70-12BB-4085-8B37-75A9F59B645F}|Pustokk.DAL\\Pustokk.DAL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.dal\\datacontext\\entities\\slider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61179C70-12BB-4085-8B37-75A9F59B645F}|Pustokk.DAL\\Pustokk.DAL.csproj|solutionrelative:pustokk.dal\\datacontext\\entities\\slider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61179C70-12BB-4085-8B37-75A9F59B645F}|Pustokk.DAL\\Pustokk.DAL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.dal\\datacontext\\entities\\subscribe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61179C70-12BB-4085-8B37-75A9F59B645F}|Pustokk.DAL\\Pustokk.DAL.csproj|solutionrelative:pustokk.dal\\datacontext\\entities\\subscribe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61179C70-12BB-4085-8B37-75A9F59B645F}|Pustokk.DAL\\Pustokk.DAL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.dal\\datacontext\\entities\\tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -70,11 +70,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 4,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "RoleType.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\DataContext\\Enum\\RoleType.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\DataContext\\Enum\\RoleType.cs",
@@ -82,12 +90,11 @@
               "RelativeToolTip": "Pustokk.DAL\\DataContext\\Enum\\RoleType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-09T00:09:15.537Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-09T00:09:15.537Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "AppUser.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\DataContext\\Entities\\AppUser.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\DataContext\\Entities\\AppUser.cs",
@@ -95,12 +102,11 @@
               "RelativeToolTip": "Pustokk.DAL\\DataContext\\Entities\\AppUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-09T00:06:27.888Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-09T00:06:27.888Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "Subscribe.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\DataContext\\Entities\\Subscribe.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\DataContext\\Entities\\Subscribe.cs",
@@ -113,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "BasketItem.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\DataContext\\Entities\\BasketItem.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\DataContext\\Entities\\BasketItem.cs",
@@ -121,8 +127,7 @@
               "RelativeToolTip": "Pustokk.DAL\\DataContext\\Entities\\BasketItem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T23:59:00.429Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T23:59:00.429Z"
             },
             {
               "$type": "Document",
@@ -134,8 +139,7 @@
               "RelativeToolTip": "Pustokk.DAL\\DataContext\\Entities\\ProductTag.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T23:56:33.343Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T23:56:33.343Z"
             },
             {
               "$type": "Document",
@@ -147,8 +151,7 @@
               "RelativeToolTip": "Pustokk.DAL\\DataContext\\Entities\\Tag.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T23:55:28.979Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T23:55:28.979Z"
             },
             {
               "$type": "Document",
@@ -160,8 +163,7 @@
               "RelativeToolTip": "Pustokk.DAL\\DataContext\\Entities\\ProductImage.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T23:52:37.322Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T23:52:37.322Z"
             },
             {
               "$type": "Document",
@@ -173,12 +175,11 @@
               "RelativeToolTip": "Pustokk.DAL\\DataContext\\Entities\\Product.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T23:47:31.768Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T23:47:31.768Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\DataContext\\Entities\\Category.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\DataContext\\Entities\\Category.cs",
@@ -191,13 +192,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Setting.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\DataContext\\Entities\\Setting.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\DataContext\\Entities\\Setting.cs",
               "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\DataContext\\Entities\\Setting.cs",
               "RelativeToolTip": "Pustokk.DAL\\DataContext\\Entities\\Setting.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-08T23:44:40.43Z",
               "EditorCaption": ""
@@ -212,12 +213,11 @@
               "RelativeToolTip": "Pustokk.DAL\\DataContext\\Entities\\Service.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T23:43:36.382Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T23:43:36.382Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\DataContext\\Entities\\Common\\BaseEntity.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\DataContext\\Entities\\Common\\BaseEntity.cs",
@@ -225,12 +225,11 @@
               "RelativeToolTip": "Pustokk.DAL\\DataContext\\Entities\\Common\\BaseEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T23:40:27.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T23:40:27.898Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Slider.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\DataContext\\Entities\\Slider.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\DataContext\\Entities\\Slider.cs",
@@ -238,8 +237,7 @@
               "RelativeToolTip": "Pustokk.DAL\\DataContext\\Entities\\Slider.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T23:27:06.166Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T23:27:06.166Z"
             },
             {
               "$type": "Document",
@@ -251,29 +249,19 @@
               "RelativeToolTip": "Pustokk.DAL\\DataContext\\AppDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T22:59:17.543Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T22:59:17.543Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "Pustokk.DAL",
+              "Title": "Pustokk.DAL.csproj",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\Pustokk.DAL.csproj",
               "RelativeDocumentMoniker": "Pustokk.DAL\\Pustokk.DAL.csproj",
               "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\Pustokk.DAL.csproj",
               "RelativeToolTip": "Pustokk.DAL\\Pustokk.DAL.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-11-08T22:58:19.162Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "WhenOpened": "2024-11-08T22:58:19.162Z"
             }
           ]
         },
