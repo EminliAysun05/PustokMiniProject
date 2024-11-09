@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pustokk.DAL.DataContext.Enum
+namespace Pustokk.DAL.Enums
 {
-    public enum RoleType
+    public enum IdentityRoles
     {
         Admin,
         Moderator,

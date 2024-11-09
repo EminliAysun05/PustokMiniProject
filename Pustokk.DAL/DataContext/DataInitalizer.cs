@@ -1,12 +1,59 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Pustokk.DAL.DataContext.Entities;
+using Pustokk.DAL.Enums;
 
-namespace Pustokk.DAL.DataContext
+namespace Pustokk.DAL.DataContext;
+
+public class DataInitalizer
 {
-    public class DataInitalizer
+    private readonly AppDbContext _appDbContext;
+    private readonly UserManager<AppUser> _userManager;
+    private readonly RoleManager<IdentityRole> _roleManager;
+    private readonly IConfiguration _configuration;
+    private readonly AppUser _admin;
+    private readonly string _adminPassword;
+
+    public DataInitalizer(AppDbContext appDbContext, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, AppUser admin, string adminPassword)
     {
+        _appDbContext = appDbContext;
+        _userManager = userManager;
+        _roleManager = roleManager;
+        _configuration = configuration;
+        _admin = admin;
+        _adminPassword = adminPassword;
+    }
+
+    public async Task SeedDataAsync()
+    {
+        await _appDbContext.Database.MigrateAsync();
+
+        await _addRolesAsync();
+
+        await _addAdminAsync();
+    }
+
+    private async Task _addRolesAsync()
+    {
+        foreach (var r in Enum.GetNames(typeof(IdentityRoles)))
+        {
+            if (await _roleManager.Roles.AnyAsync(x => x.Name == r.ToString()))
+                continue;
+
+            IdentityRole role = new() { Name = r };
+
+            await _roleManager.CreateAsync(role);
+        }
+    }
+    private async Task _addAdminAsync()
+    {
+        var existUser = await _userManager.FindByNameAsync(_admin.UserName ?? "");
+
+        if (existUser is not null)
+            return;
+
+        await _userManager.CreateAsync(_admin, _adminPassword);
+        await _userManager.AddToRoleAsync(_admin, IdentityRoles.Admin.ToString());
     }
 }
