@@ -30,4 +30,4 @@ namespace Pustokk.BLL.ViewModels.ProductImageViewModels
         public string? ExistingImageUrl { get; set; }  // Mövcud şəkil saxlanır
     }
 }
-}
+

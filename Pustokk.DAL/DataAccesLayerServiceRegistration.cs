@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Pustokk.DAL.DataContext;
 using Pustokk.DAL.DataContext.Entities;
+using Pustokk.DAL.Repositories;
+using Pustokk.DAL.Repositories.Contracts;
 
 namespace Pustokk.DAL;
 
@@ -29,6 +31,17 @@ public static class DataAccesLayerServiceRegistration
         }).AddEntityFrameworkStores<AppDbContext>()
            .AddDefaultTokenProviders();
 
+        services.AddScoped(typeof(IRepository<>), typeof(EfCoreRepository<>));
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<IProductTagRepository, ProductTagRepository>();
+        services.AddScoped<IProductImageRepository, ProductImageRepository>();
+        services.AddScoped<ITagRepository, TagRepository>();
+        services.AddScoped<IServiceRepository, ServiceRepository>();
+        services.AddScoped<ISettingRepository, SettingRepository>();
+        services.AddScoped<ISliderRepository, SliderRepository>();
+        services.AddScoped<ISubscribeRepository, SubscribeRepository>();
+        services.AddScoped<IBasketItemRepository, BasketItemRepository>();
 
         return services;
     }
