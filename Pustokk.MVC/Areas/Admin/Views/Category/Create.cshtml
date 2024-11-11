@@ -1,0 +1,17 @@
+﻿@model CategoryCreateViewModel
+
+<form asp-action="Create" method="post">
+    <label for="categoryName">Kateqoriya adı:</label>
+    <input type="text" id="categoryName" asp-for="Name" required>
+
+    <label for="parentCategory">Üst Kateqoriya:</label>
+    <select id="parentCategory" asp-for="ParentCategoryId">
+        <option value="">Əsas kateqoriya kimi yarat</option>
+        @foreach (var category in Model.Categories)
+        {
+            <option value="@category.Id">@category.Name</option>
+        }
+    </select>
+
+    <button type="submit">Yarat</button>
+</form>

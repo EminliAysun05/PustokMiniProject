@@ -12,5 +12,5 @@ namespace Pustokk.BLL.Services.Contracts;
 
 public interface IProductService 
 {
-    //Task<ProductViewModel> AddProductWithImagesAsync(ProductCreateViewModel createViewModel, List<IFormFile> imageFiles);
+    Task<ProductViewModel> AddProductWithImagesAsync(ProductCreateViewModel createViewModel);
 }

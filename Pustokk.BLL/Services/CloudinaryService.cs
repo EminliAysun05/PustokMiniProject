@@ -44,6 +44,20 @@ internal class CloudinaryService : ICloudService
         return url;
     }
 
+    public async Task<List<string>> FileCreateAsync(List<IFormFile> files)
+    {
+        var imageUrls = new List<string>();
+        foreach (var file in files)
+        {
+            var imageUrl = await FileCreateAsync(file);
+            if (!string.IsNullOrEmpty(imageUrl))
+            {
+                imageUrls.Add(imageUrl);
+            }
+        }
+        return imageUrls;
+    }
+
     public async Task<bool> FileDeleteAsync(string filePath)
     {
         try
@@ -67,4 +81,16 @@ internal class CloudinaryService : ICloudService
             return false;
         }
     }
+
+   
+
+    public async Task FileDeleteAsync(List<string> filePaths)
+    {
+        foreach (var path in filePaths)
+        {
+            await FileDeleteAsync(path);
+        }
+    }
+
+   
 }

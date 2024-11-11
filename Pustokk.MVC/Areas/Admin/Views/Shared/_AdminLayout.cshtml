@@ -177,17 +177,31 @@
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                             <i class="mdi mdi-circle-outline menu-icon"></i>
+                            <span class="menu-title">Product</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" asp-controller="product" asp-action="index">Products</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="product" asp-action="create">>Add product</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="mdi mdi-circle-outline menu-icon"></i>
                             <span class="menu-title">Category</span>
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-controller="category" action="index">Categories</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-controller="category" action="create">Add category</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="category" asp-action="index">Categories</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="category" asp-action="create">>Add category</a></li>
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item">
+                  @*   <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                             <i class="mdi mdi-circle-outline menu-icon"></i>
                             <span class="menu-title">Product</span>
@@ -199,7 +213,7 @@
                                 <li class="nav-item"> <a class="nav-link" asp-controller="product" action="create">Add product</a></li>
                             </ul>
                         </div>
-                    </li>
+                    </li> *@
                     <li class="nav-item">
                         <a class="nav-link" href="pages/forms/basic_elements.html">
                             <i class="mdi mdi-view-headline menu-icon"></i>

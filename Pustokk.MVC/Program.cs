@@ -1,3 +1,4 @@
+using Pustokk.BLL;
 using Pustokk.BLL.Services;
 using Pustokk.DAL;
 
@@ -12,6 +13,7 @@ namespace Pustokk.MVC
             builder.Services.AddControllersWithViews();
             //for DAL
             builder.Services.AddDalServices(builder.Configuration);
+            builder.Services.AddBllService(builder.Configuration);
 
             var app = builder.Build();
 

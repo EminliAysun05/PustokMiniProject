@@ -24,7 +24,7 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
         _mapper = mapper;
     }
 
-    public async Task<ProductViewModel> AddProductWithImagesAsync(ProductCreateViewModel createViewModel)
+    public async Task<ProductViewModel> AddProductWithImagesAsync(ProductCreateViewModel createViewModel)//create
     {
 
         var product = _mapper.Map<Product>(createViewModel);
@@ -70,26 +70,54 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
             throw new Exception("Discount price mustn be egative or zero and cannot be higher than the original price.");
         }
 
-        var existingProduct = await _productRepository.GetAsync(updateViewModel.Id);//bura 
+        var existingProduct = await _productRepository.GetAsync(x => x.Id == updateViewModel.Id, x => x.Include(x => x.ProductTags).Include(x => x.ProductImages)); //noldu men yazanda islmirdi aqmma nebilim valla cxo saol xosduu bbbb
 
         if (existingProduct is null)
             throw new Exception("Product not found");
 
-        if (updateViewModel.NewImageFiles != null)
+        _mapper.Map(updateViewModel, existingProduct);
+
+        if (updateViewModel.RemoveOldImages && existingProduct.ProductImages != null)
         {
-            var imageName = await _cloudService.FileCreateAsync(updateViewModel.NewImageFiles);
-            await _cloudService.FileDeleteAsync(existingProduct.NewImageFiles);
-            updateViewModel.NewImageFiles = imageName;
+            foreach (var oldImage in existingProduct.ProductImages)
+            {
+                await _cloudService.FileDeleteAsync(oldImage.ImageUrl);
+            }
+            existingProduct.ProductImages.Clear();
         }
 
+        if (updateViewModel.NewImageFiles != null && updateViewModel.NewImageFiles.Count > 0)
+        {
+            var newImageUrls = new List<string>();
+            foreach (var file in updateViewModel.NewImageFiles)
+            {
+                var imageUrl = await _cloudService.FileCreateAsync(file);
+                newImageUrls.Add(imageUrl);
+            }
 
+            if (existingProduct.ProductImages == null)
+            {
+                existingProduct.ProductImages = new List<ProductImage>();
+            }
+
+            foreach (var url in newImageUrls)
+            {
+                existingProduct.ProductImages.Add(new ProductImage
+                {
+                    ImageUrl = url
+                });
+
+            }
+
+        }
+
+        var updatedProduct = await _productRepository.UpdateAsync(existingProduct);
+        return _mapper.Map<ProductViewModel>(updatedProduct);
     }
 
 
-
-
-
 }
+
 
 
 // tutaq ki burda sekil yaradacaqsan
