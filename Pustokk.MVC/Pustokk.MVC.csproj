@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Pustokk.BLL\Pustokk.BLL.csproj" />
     <ProjectReference Include="..\Pustokk.DAL\Pustokk.DAL.csproj" />
   </ItemGroup>
 

@@ -1,11 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Pustokk.BLL.Services;
+using Pustokk.BLL.Services.Contracts;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pustokk.BLL
 {
@@ -13,8 +10,8 @@ namespace Pustokk.BLL
     {
         public static IServiceCollection AddBllService(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddAutoMapper(Assembly.GetExecutingAssembly()); 
-           
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<ICloudService, CloudinaryService>();
 
             return services;
         }

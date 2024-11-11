@@ -1,3 +1,4 @@
+using Pustokk.BLL.Services;
 using Pustokk.DAL;
 
 namespace Pustokk.MVC
@@ -8,12 +9,9 @@ namespace Pustokk.MVC
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            
             builder.Services.AddControllersWithViews();
             //for DAL
             builder.Services.AddDalServices(builder.Configuration);
-
-
 
             var app = builder.Build();
 
@@ -32,6 +30,12 @@ namespace Pustokk.MVC
 
             app.UseAuthorization();
 
+            // Area route for admin panel
+            app.MapControllerRoute(
+                name: "areas",
+                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+            
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");

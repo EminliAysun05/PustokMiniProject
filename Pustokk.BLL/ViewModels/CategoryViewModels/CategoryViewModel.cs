@@ -19,6 +19,7 @@ namespace Pustokk.BLL.ViewModels.CategoryViewModels
     {
         public required string Name { get; set; }
         public required IFormFile ImageFile { get; set; }
+        public string? ImageUrl { get; set; }
     }
 
     public class CategoryUpdateViewModel : IViewModel
@@ -26,6 +27,7 @@ namespace Pustokk.BLL.ViewModels.CategoryViewModels
         public int Id { get; set; }
         public required string Name { get; set; }
         public IFormFile? ImageFile { get; set; }
+        public string? ImageUrl { get; set; }
         public string? ExistingImageUrl { get; set; }
     }
 }

@@ -1,0 +1,16 @@
+C:\Users\namjoon\source\repos\Pustokk.MVC\Pustokk.BLL\bin\Debug\net8.0\Pustokk.BLL.deps.json
+C:\Users\namjoon\source\repos\Pustokk.MVC\Pustokk.BLL\bin\Debug\net8.0\Pustokk.BLL.dll
+C:\Users\namjoon\source\repos\Pustokk.MVC\Pustokk.BLL\bin\Debug\net8.0\Pustokk.BLL.pdb
+C:\Users\namjoon\source\repos\Pustokk.MVC\Pustokk.BLL\bin\Debug\net8.0\Pustokk.DAL.dll
+C:\Users\namjoon\source\repos\Pustokk.MVC\Pustokk.BLL\bin\Debug\net8.0\Pustokk.DAL.pdb
+C:\Users\namjoon\source\repos\Pustokk.MVC\Pustokk.BLL\obj\Debug\net8.0\Pustokk.BLL.csproj.AssemblyReference.cache
+C:\Users\namjoon\source\repos\Pustokk.MVC\Pustokk.BLL\obj\Debug\net8.0\Pustokk.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\namjoon\source\repos\Pustokk.MVC\Pustokk.BLL\obj\Debug\net8.0\Pustokk.BLL.AssemblyInfoInputs.cache
+C:\Users\namjoon\source\repos\Pustokk.MVC\Pustokk.BLL\obj\Debug\net8.0\Pustokk.BLL.AssemblyInfo.cs
+C:\Users\namjoon\source\repos\Pustokk.MVC\Pustokk.BLL\obj\Debug\net8.0\Pustokk.BLL.csproj.CoreCompileInputs.cache
+C:\Users\namjoon\source\repos\Pustokk.MVC\Pustokk.BLL\obj\Debug\net8.0\Pustokk.BLL.sourcelink.json
+C:\Users\namjoon\source\repos\Pustokk.MVC\Pustokk.BLL\obj\Debug\net8.0\Pustokk..BEE066C5.Up2Date
+C:\Users\namjoon\source\repos\Pustokk.MVC\Pustokk.BLL\obj\Debug\net8.0\Pustokk.BLL.dll
+C:\Users\namjoon\source\repos\Pustokk.MVC\Pustokk.BLL\obj\Debug\net8.0\refint\Pustokk.BLL.dll
+C:\Users\namjoon\source\repos\Pustokk.MVC\Pustokk.BLL\obj\Debug\net8.0\Pustokk.BLL.pdb
+C:\Users\namjoon\source\repos\Pustokk.MVC\Pustokk.BLL\obj\Debug\net8.0\ref\Pustokk.BLL.dll
