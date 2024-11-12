@@ -14,6 +14,7 @@ namespace Pustokk.BLL
             services.AddScoped<ICloudService, CloudinaryService>();
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<ISliderService, SliderManager>();
 
             return services;
         }
