@@ -24,8 +24,10 @@ public class SliderManager : CrudManager<Slider, SliderViewModel, SliderCreateVi
 
     public override async Task<SliderViewModel> CreateAsync(SliderCreateViewModel createViewModel)
     {
-        if (!createViewModel.ImageFile.IsImage() || !createViewModel.ImageFile.AllowedSize(2))
+        if (createViewModel.ImageFile == null || !createViewModel.ImageFile.IsImage() || !createViewModel.ImageFile.AllowedSize(2))
+        {
             throw new Exception("Invalid image file");
+        }
 
         var imageUrl = await _cloudService.FileCreateAsync(createViewModel.ImageFile);
         var slider = _mapper.Map<Slider>(createViewModel);
@@ -67,7 +69,7 @@ public class SliderManager : CrudManager<Slider, SliderViewModel, SliderCreateVi
         return _mapper.Map<SliderViewModel>(deletedSlider);
     }
 
-    public override async Task<SliderViewModel> GetAsync(int id)
+    public override async Task<SliderViewModel?> GetAsync(int id)
     {
         var slider = await _sliderRepository.GetAsync(id);
         if (slider == null) throw new Exception("Slider not found");

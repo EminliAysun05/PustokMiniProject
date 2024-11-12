@@ -123,8 +123,18 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
     Expression<Func<Product, bool>>? predicate = null,
     Func<IQueryable<Product>, IIncludableQueryable<Product, object>>? include = null,
     Func<IQueryable<Product>, IOrderedQueryable<Product>>? orderBy = null)
-    {  
-        var products = await _productRepository.GetAllAsync(predicate, include: q => q.Include(p => p.ProductTags).Include(p => p.ProductImages), orderBy);
+    {
+        //var products = await _productRepository.GetAllAsync
+        //    (predicate, include: q => q.Include(p => p.ProductTags).
+        //    Include(p => p.ProductImages), orderBy);
+
+        var products = await _productRepository.GetAllAsync(
+     predicate,
+     include: q => q.Include(p => p.Category)
+                    .Include(p => p.ProductTags)
+                    .ThenInclude(pt => pt.Tag)
+                    .Include(p => p.ProductImages),
+     orderBy);
 
         return _mapper.Map<List<ProductViewModel>>(products);
     }
@@ -142,17 +152,18 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
         return _mapper.Map<List<TagViewModel>>(tags);
     }
 
-    public override async Task<ProductViewModel> GetAsync(int id)
+    public override async Task<ProductViewModel?> GetAsync(int id)
     {
         var product = await _productRepository.GetAsync(
             p=>p.Id == id,
             include: query => query
             .Include(p => p.Category)
-            .Include(p=>p.ProductTags).ThenInclude(pt=>pt.Tag!));
+            .Include(p=>p.ProductTags).ThenInclude(pt=>pt.Tag!)
+            .Include(p=>p.ProductImages));
 
         if (product == null) throw new Exception("Not found");
 
-        return _mapper.Map<ProductViewModel>(product);
+        return _mapper.Map<ProductViewModel?>(product);
     }
 
     public override async Task<ProductViewModel> DeleteAsync(int id)

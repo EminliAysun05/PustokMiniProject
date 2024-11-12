@@ -12,6 +12,7 @@ namespace Pustokk.BLL.Services.Contracts
 {
     public interface ISliderService
     {
+       
         Task<List<SliderViewModel>> GetAllAsync(
     Expression<Func<Slider, bool>>? predicate = null,
     Func<IQueryable<Slider>, IIncludableQueryable<Slider, object>>? include = null,
@@ -19,6 +20,6 @@ namespace Pustokk.BLL.Services.Contracts
         Task<SliderViewModel> CreateAsync(SliderCreateViewModel createViewModel);
         Task<SliderViewModel> UpdateAsync(SliderUpdateViewModel updateViewModel);
         Task<SliderViewModel> DeleteAsync(int id);
-        Task<SliderViewModel> GetAsync(int id);
+        Task<SliderViewModel?> GetAsync(int id);
     }
 }

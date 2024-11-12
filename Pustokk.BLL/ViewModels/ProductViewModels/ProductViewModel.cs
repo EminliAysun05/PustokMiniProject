@@ -14,12 +14,18 @@ namespace Pustokk.BLL.ViewModels.ProductViewModels
     {
         public int Id { get; set; }
         public string? Name { get; set; }
-        public decimal Price { get; set; }
         public string? Description { get; set; }
-        public string? ImageUrl { get; set; }
+        public decimal Price { get; set; }
+        public decimal DisCountPrice { get; set; }
+        //public string? ImageUrl { get; set; }
         public int CategoryId { get; set; }
         public string? CategoryName { get; set; }
-        public decimal DisCountPrice { get; set; }
+        public List<string> TagNames { get; set; } = new();
+        //  public List<int>? TagIds { get; set; }
+        // public string? TagName { get; set; }
+
+        public List<Tag> Tags { get; set; } = new List<Tag>();
+        public List<string> ImageUrls { get; set; } = new();
     }
 
     public class ProductCreateViewModel : IViewModel
@@ -29,8 +35,8 @@ namespace Pustokk.BLL.ViewModels.ProductViewModels
         public string? Description { get; set; }
         public  int CategoryId { get; set; }
         public List<int>? TagIds { get; set; }
-        public List<Category> Categories { get; set; } = new List<Category>();
         public List<Tag> Tags { get; set; } = new List<Tag>();
+        public List<Category> Categories { get; set; } = new List<Category>();
         public decimal? DisCountPrice { get; set; }
         public  List<IFormFile>? ImageFiles { get; set; }
     }
@@ -43,10 +49,11 @@ namespace Pustokk.BLL.ViewModels.ProductViewModels
         public string? Description { get; set; }
         public required int CategoryId { get; set; }
         public List<int>? TagIds { get; set; }
-        public List<CategoryViewModel>? Categories { get; set; }
-        public List<TagViewModel>? Tags { get; set; } 
+        public List<CategoryViewModel> Categories { get; set; } = new List<CategoryViewModel>();
+        public List<TagViewModel> Tags { get; set; } = new List<TagViewModel>();
         public List<IFormFile>? NewImageFiles { get; set; }
         //emin deyilem
+        public List<string> ImageUrls { get; set; } = new List<string>();
         public bool RemoveOldImages { get; set; }
         public List<string>? ExistingImageUrls { get; set; }
         public decimal DisCountPrice { get; set; }

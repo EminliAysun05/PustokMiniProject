@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Pustokk.BLL.Services.Contracts;
+using Pustokk.BLL.ViewModels.CategoryViewModels;
 using Pustokk.BLL.ViewModels.ProductViewModels;
+using Pustokk.BLL.ViewModels.TagViewModels;
 using Pustokk.DAL.DataContext;
 using Pustokk.DAL.DataContext.Entities;
 
@@ -17,11 +19,12 @@ public class ProductController : Controller
     private readonly IProductService _productService;
     private readonly IMapper _mapper;
 
-    public ProductController(AppDbContext context, ICloudService cloudService, IProductService productService)
+    public ProductController(AppDbContext context, ICloudService cloudService, IProductService productService, IMapper mapper)
     {
         _context = context;
         _cloudService = cloudService;
         _productService = productService;
+        _mapper = mapper;
     }
 
     public async Task<IActionResult> Index()
@@ -32,6 +35,9 @@ public class ProductController : Controller
 
     public async Task<IActionResult> Create()
     {
+        var categories = await _productService.GetCategoriesAsync();
+        var tags = await _productService.GetTagsAsync();
+
         var productViewModel = new ProductCreateViewModel
         {
             Categories = await _context.Categories.ToListAsync(),
@@ -55,8 +61,7 @@ public class ProductController : Controller
 
         try
         {
-           
-            await _productService.AddProductWithImagesAsync(vm);
+             await _productService.AddProductWithImagesAsync(vm);
 
             
             return RedirectToAction("Index");
@@ -82,8 +87,11 @@ public class ProductController : Controller
         var tags = await _productService.GetTagsAsync();
 
         var viewModel = _mapper.Map<ProductUpdateViewModel>(product);
-        viewModel.Categories = categories;
-        viewModel.Tags = tags;
+
+        viewModel.Categories = categories ?? new List<CategoryViewModel>();
+        viewModel.Tags = tags ?? new List<TagViewModel>();
+        //viewModel.Categories = categories;
+        //viewModel.Tags = tags;
 
         return View(viewModel);
     }

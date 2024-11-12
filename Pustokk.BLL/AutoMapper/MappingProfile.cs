@@ -21,10 +21,35 @@ namespace Pustokk.BLL.AutoMapper
     {
         public MappingProfile()
         {
+            CreateMap<Product, ProductViewModel>()
+      .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category != null ? src.Category.Name : ""))
+      .ForMember(dest => dest.TagNames, opt => opt.MapFrom(src => src.ProductTags.Select(pt => pt.Tag.Name).ToList()))  // TagNames listini xəritələyir
+      .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ProductImages.Select(pi => pi.ImageUrl).ToList()));
+
+
+            CreateMap<Product, ProductCreateViewModel>()
+                .ForMember(dest => dest.TagIds, opt => opt.MapFrom(src => src.ProductTags.Select(pt => pt.TagId).ToList()))
+                .ReverseMap()
+                .ForPath(src => src.ProductTags, opt => opt.Ignore());
+
+            CreateMap<Product, ProductUpdateViewModel>()
+                .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ProductImages.Select(pi => pi.ImageUrl).ToList()))
+                .ForMember(dest => dest.TagIds, opt => opt.MapFrom(src => src.ProductTags.Select(pt => pt.TagId).ToList()))
+                .ReverseMap()
+                .ForPath(src => src.ProductTags, opt => opt.Ignore());
+
+            // ProductTag mappings for TagViewModel
+            CreateMap<ProductTag, TagViewModel>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.TagId))
+               .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Tag != null ? src.Tag.Name : string.Empty))
+                .ReverseMap()
+                .ForPath(src => src.TagId, opt => opt.MapFrom(dest => dest.Id));
+
             //product
-            CreateMap<Product, ProductViewModel>().ReverseMap();
-            CreateMap<Product, ProductCreateViewModel>().ReverseMap();
-            CreateMap<Product, ProductUpdateViewModel>().ReverseMap();
+            //CreateMap<Product, ProductViewModel>().ReverseMap();
+            //CreateMap<Product, ProductCreateViewModel>().ReverseMap();
+            //CreateMap<Product, ProductUpdateViewModel>().ReverseMap();
+
 
             //category
             CreateMap<Category, CategoryViewModel>().ReverseMap();

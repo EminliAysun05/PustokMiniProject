@@ -23,10 +23,14 @@ namespace Pustokk.MVC.Areas.Admin.Controllers
             return View(sliders);
         }
 
-        //public IActionResult Create()
-        //{
-        //    return View(new SliderCreateViewModel());
-        //}
+        public IActionResult Create()
+        {
+            return View(new SliderCreateViewModel
+            {
+                Title = string.Empty, 
+                Description = string.Empty
+            });
+        }
 
         [HttpPost]
         public async Task<IActionResult> Create(SliderCreateViewModel model)

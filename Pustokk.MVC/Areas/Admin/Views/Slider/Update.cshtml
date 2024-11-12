@@ -1,0 +1,44 @@
+﻿@using Pustokk.BLL.ViewModels.SliderViewModels
+@model SliderUpdateViewModel
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Slider Yenilə</h4>
+            <p class="card-description">Slider məlumatlarını yeniləyin.</p>
+            <form method="post" class="forms-sample" enctype="multipart/form-data">
+                <div class="text-danger mb-3" asp-validation-summary="ModelOnly"></div>
+
+                <div class="form-group">
+                    <label for="sliderTitle">Başlıq</label>
+                    <input asp-for="Title" class="form-control" id="sliderTitle" placeholder="Başlıq daxil edin">
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="sliderSubtitle">Alt başlıq</label>
+                    <input asp-for="Description" class="form-control" id="sliderSubtitle" placeholder="Alt başlıq daxil edin">
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="sliderImage">Yeni Şəkil</label>
+                    <input asp-for="NewImageFile" class="form-control" type="file" id="sliderImage">
+                    <span asp-validation-for="NewImageFile" class="text-danger"></span>
+                </div>
+
+                @if (Model.ExistingImageUrl != null)
+                {
+                    <div class="form-group">
+                        <label>Mövcud Şəkil</label>
+                        <img src="@Model.ExistingImageUrl" alt="Mövcud Şəkil" style="width: 100px; height: auto;" />
+                    </div>
+                }
+
+                <button type="submit" class="btn btn-primary mr-2">Yenilə</button>
+                <a href="@Url.Action("Index", "Slider")" class="btn btn-secondary">İmtina et</a>
+            </form>
+        </div>
+    </div>
+</div>
+

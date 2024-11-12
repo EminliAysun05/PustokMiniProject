@@ -15,8 +15,8 @@ public class SliderCreateViewModel : IViewModel
 {
     public required string Title { get; set; }
     public required string Description { get; set; }
+    public   IFormFile? ImageFile { get; set; }
   //  public required string Link { get; set; }
-    public  required IFormFile ImageFile { get; set; }
 }
 
 public class SliderUpdateViewModel : IViewModel

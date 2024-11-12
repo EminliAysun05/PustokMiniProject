@@ -44,14 +44,23 @@ namespace Pustokk.MVC.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CategoryCreateViewModel model)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 model.Categories = await _categoryService.GetParentCategoriesAsync();
                 return View(model);
             }
 
-            await _categoryService.CreateAsync(model); 
-            return RedirectToAction("Index");
+            try
+            {
+                await _categoryService.CreateAsync(model);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                model.Categories = await _categoryService.GetParentCategoriesAsync();
+                return View(model);
+            }
         }
 
         public async Task<IActionResult> Update(int id)

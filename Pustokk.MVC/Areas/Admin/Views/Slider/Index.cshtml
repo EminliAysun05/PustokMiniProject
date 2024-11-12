@@ -1,0 +1,42 @@
+﻿@using Pustokk.BLL.ViewModels.SliderViewModels
+@model IEnumerable<SliderViewModel>
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Slayder Siyahısı</h4>
+            <a asp-action="Create" class="btn btn-primary mb-3">Yeni Slayder Yarat</a>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Şəkil</th>
+                            <th>Başlıq</th>
+                            <th>Alt Başlıq</th>
+                            <th>Əməliyyatlar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                    {
+                                        <img src="@item.ImageUrl" alt="Slider Image" style="width: 50px; height: auto;" />
+                                    }
+                                </td>
+                                <td>@item.Title</td>
+                                <td>@item.Description</td>
+                                <td>
+                                    <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Yenilə</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm" onclick="return confirm('Bu slayderi silmək istədiyinizdən əminsinizmi?')">Sil</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -23,7 +23,7 @@ namespace Pustokk.BLL.Services
             _categoryRepository = categoryRepository;
             _mapper = mapper;
         }
-
+       
         public async Task<List<CategoryViewModel>> GetParentCategoriesAsync()
         {
             //parent categoisi olmayanlari getirecem parentcategory==null
@@ -86,7 +86,7 @@ namespace Pustokk.BLL.Services
             return _mapper.Map<CategoryViewModel>(category);
         }
 
-        public override async Task<CategoryViewModel> GetAsync(int id)
+        public override async Task<CategoryViewModel?> GetAsync(int id)
         {
             var category = await _categoryRepository.GetAsync(c=>c.Id == id, include: q=>q.Include(c=>c.SubCategories!));
             if (category == null) throw new Exception("Category not found"); ;

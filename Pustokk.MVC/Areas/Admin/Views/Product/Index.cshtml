@@ -1,22 +1,23 @@
 ﻿@using Pustokk.BLL.ViewModels.ProductViewModels
-@model List<ProductViewModel>
+@model IEnumerable<ProductViewModel>
+
 <h1>Məhsullar</h1>
 
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Məhsullar Cədvəli</h4>
+                <h4 class="card-title">Məhsul Siyahısı</h4>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Şəkil</th>
+                                <th>Şəkillər</th>
                                 <th>Ad</th>
+                                <th>Kateqoriya</th>
                                 <th>Qiymət</th>
                                 <th>Endirimli Qiymət</th>
-                                <th>Kateqoriya</th>
-                                <th>Təsvir</th>
+                                <th>Etiketlər</th>
                                 <th>Əməliyyatlar</th>
                             </tr>
                         </thead>
@@ -24,18 +25,28 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
+                                    <!-- Şəkillər -->
                                     <td>
-                                        @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                        @if (item.ImageUrls != null && item.ImageUrls.Any())
                                         {
-                                            <img src="@item.ImageUrl" alt="Şəkil" style="width: 50px; height: 50px; object-fit: cover;" />
+                                            <img src="@item.ImageUrls.First()" alt="Şəkil" style="width: 50px; height: 50px; object-fit: cover;" />
                                         }
                                         else
                                         {
                                             <span>Şəkil yoxdur</span>
                                         }
                                     </td>
+
+                                    <!-- Ad -->
                                     <td>@item.Name</td>
+
+                                    <!-- Kateqoriya -->
+                                    <td>@item.CategoryName</td>
+
+                                    <!-- Qiymət -->
                                     <td>@item.Price.ToString("0.00") ₼</td>
+
+                                    <!-- Endirimli Qiymət -->
                                     <td>
                                         @if (item.DisCountPrice > 0)
                                         {
@@ -46,8 +57,25 @@
                                             <span>Endirim yoxdur</span>
                                         }
                                     </td>
-                                    <td>@item.Description</td>
-                                    <td>@item.CategoryName</td>
+
+                                    <!-- Etiketlər -->
+                                    <td>
+                                        @if (item.Tags != null && item.Tags.Any())
+                                        {
+                                            <ul>
+                                                @foreach (var tagName in item.TagNames)
+                                                {
+                                                    <li>@tagName</li>
+                                                }
+                                            </ul>
+                                        }
+                                        else
+                                        {
+                                            <span>Etiket yoxdur</span>
+                                        }
+                                    </td>
+
+                                    <!-- Əməliyyatlar -->
                                     <td>
                                         <a class="btn btn-warning btn-sm" asp-action="Update" asp-route-id="@item.Id">Yenilə</a>
                                         <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('Bu məhsulu silmək istədiyinizdən əminsinizmi?')">Sil</a>

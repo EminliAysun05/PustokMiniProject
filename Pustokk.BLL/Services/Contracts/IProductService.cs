@@ -17,7 +17,7 @@ namespace Pustokk.BLL.Services.Contracts;
 public interface IProductService 
 {
     Task<ProductViewModel> DeleteAsync(int id);
-    Task<ProductViewModel> GetAsync(int id);
+    Task<ProductViewModel?> GetAsync(int id);
     Task<List<CategoryViewModel>> GetCategoriesAsync();
     Task<List<TagViewModel>> GetTagsAsync();
     Task<ProductViewModel> AddProductWithImagesAsync(ProductCreateViewModel createViewModel);
