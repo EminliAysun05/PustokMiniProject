@@ -23,7 +23,7 @@ namespace Pustokk.BLL.AutoMapper
         {
             CreateMap<Product, ProductViewModel>()
       .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category != null ? src.Category.Name : ""))
-      .ForMember(dest => dest.TagNames, opt => opt.MapFrom(src => src.ProductTags.Select(pt => pt.Tag.Name).ToList()))  // TagNames listini xəritələyir
+      .ForMember(dest => dest.TagNames, opt => opt.MapFrom(src => src.ProductTags.Select(pt => pt.Tag.Name).ToList()))  
       .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ProductImages.Select(pi => pi.ImageUrl).ToList()));
 
 
@@ -38,12 +38,14 @@ namespace Pustokk.BLL.AutoMapper
                 .ReverseMap()
                 .ForPath(src => src.ProductTags, opt => opt.Ignore());
 
-            // ProductTag mappings for TagViewModel
+           
             CreateMap<ProductTag, TagViewModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.TagId))
                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Tag != null ? src.Tag.Name : string.Empty))
                 .ReverseMap()
                 .ForPath(src => src.TagId, opt => opt.MapFrom(dest => dest.Id));
+
+            CreateMap<ProductViewModel, ProductUpdateViewModel>().ReverseMap();
 
             //product
             //CreateMap<Product, ProductViewModel>().ReverseMap();
@@ -55,6 +57,9 @@ namespace Pustokk.BLL.AutoMapper
             CreateMap<Category, CategoryViewModel>().ReverseMap();
             CreateMap<Category, CategoryCreateViewModel>().ReverseMap();
             CreateMap<Category, CategoryUpdateViewModel>().ReverseMap();
+            CreateMap<CategoryViewModel, CategoryUpdateViewModel>().ReverseMap();
+
+
 
             //appUser
             CreateMap<AppUser, RegisterViewModel>().ReverseMap();
@@ -75,6 +80,7 @@ namespace Pustokk.BLL.AutoMapper
             CreateMap<Slider, SliderViewModel>().ReverseMap();
             CreateMap<Slider, SliderCreateViewModel>().ReverseMap();
             CreateMap<Slider, SliderUpdateViewModel>().ReverseMap();
+            CreateMap<SliderViewModel, SliderUpdateViewModel>().ReverseMap();
 
             // Tag 
             CreateMap<Tag, TagViewModel>().ReverseMap();

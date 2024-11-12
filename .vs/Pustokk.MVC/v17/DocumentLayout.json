@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.bll\\automapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|solutionrelative:pustokk.bll\\automapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.mvc\\areas\\admin\\views\\slider\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|solutionrelative:pustokk.mvc\\areas\\admin\\views\\slider\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.mvc\\areas\\admin\\controllers\\slidercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|solutionrelative:pustokk.mvc\\areas\\admin\\controllers\\slidercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.mvc\\areas\\admin\\views\\product\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|solutionrelative:pustokk.mvc\\areas\\admin\\views\\product\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.mvc\\areas\\admin\\views\\slider\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -19,8 +27,28 @@
       "RelativeMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|solutionrelative:pustokk.mvc\\areas\\admin\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.mvc\\areas\\admin\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|solutionrelative:pustokk.mvc\\areas\\admin\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.mvc\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|solutionrelative:pustokk.mvc\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.bll\\services\\productmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|solutionrelative:pustokk.bll\\services\\productmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.mvc\\areas\\admin\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|solutionrelative:pustokk.mvc\\areas\\admin\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.mvc\\areas\\admin\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|solutionrelative:pustokk.mvc\\areas\\admin\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|solutionrelative:pustokk.mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.bll\\services\\slidermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,20 +59,12 @@
       "RelativeMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|solutionrelative:pustokk.bll\\services\\contracts\\isliderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.bll\\automapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|solutionrelative:pustokk.bll\\automapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.bll\\viewmodels\\productviewmodels\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|solutionrelative:pustokk.bll\\viewmodels\\productviewmodels\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.bll\\viewmodels\\categoryviewmodels\\categoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|solutionrelative:pustokk.bll\\viewmodels\\categoryviewmodels\\categoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.bll\\services\\productmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|solutionrelative:pustokk.bll\\services\\productmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61179C70-12BB-4085-8B37-75A9F59B645F}|Pustokk.DAL\\Pustokk.DAL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.dal\\datacontext\\entities\\slider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -71,16 +91,8 @@
       "RelativeMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|solutionrelative:pustokk.mvc\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.mvc\\areas\\admin\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|solutionrelative:pustokk.mvc\\areas\\admin\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.bll\\services\\contracts\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|solutionrelative:pustokk.bll\\services\\contracts\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.mvc\\areas\\admin\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|solutionrelative:pustokk.mvc\\areas\\admin\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|c:\\users\\namjoon\\source\\repos\\pustokk.mvc\\pustokk.bll\\services\\categorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -174,8 +186,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 11,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Update.cshtml",
+              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Update.cshtml",
+              "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Update.cshtml",
+              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Update.cshtml",
+              "RelativeToolTip": "Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Update.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-12T19:54:42.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "Pustokk.MVC\\Areas\\Admin\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-12T19:49:06.866Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -186,20 +224,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Update.cshtml",
-              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Slider\\Update.cshtml",
-              "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Views\\Slider\\Update.cshtml",
-              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Slider\\Update.cshtml",
-              "RelativeToolTip": "Pustokk.MVC\\Areas\\Admin\\Views\\Slider\\Update.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-12T14:25:07.158Z",
+              "DocumentIndex": 7,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Pustokk.MVC\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAiwGQAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T21:52:31.617Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "RelativeToolTip": "Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "ViewState": "AgIAADIAAAAAAAAAAAAqwFsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T10:36:24.22Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProductManager.cs",
+              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Services\\ProductManager.cs",
+              "RelativeDocumentMoniker": "Pustokk.BLL\\Services\\ProductManager.cs",
+              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Services\\ProductManager.cs",
+              "RelativeToolTip": "Pustokk.BLL\\Services\\ProductManager.cs",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAUwMQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T22:09:29.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Create.cshtml",
+              "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Create.cshtml",
+              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Create.cshtml",
+              "RelativeToolTip": "Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Create.cshtml",
+              "ViewState": "AgIAADEAAAAAAAAAAAAqwEcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-12T00:17:03.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Slider\\Create.cshtml",
               "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Views\\Slider\\Create.cshtml",
@@ -212,46 +289,72 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SliderManager.cs",
-              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Services\\SliderManager.cs",
-              "RelativeDocumentMoniker": "Pustokk.BLL\\Services\\SliderManager.cs",
-              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Services\\SliderManager.cs",
-              "RelativeToolTip": "Pustokk.BLL\\Services\\SliderManager.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAYwEcAAAAvAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "SliderController.cs",
+              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Controllers\\SliderController.cs",
+              "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Controllers\\SliderController.cs",
+              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Controllers\\SliderController.cs",
+              "RelativeToolTip": "Pustokk.MVC\\Areas\\Admin\\Controllers\\SliderController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAkwDcAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T00:57:51.279Z",
+              "WhenOpened": "2024-11-12T01:07:25.122Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "Pustokk.MVC\\Areas\\Admin\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAQwF8AAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T21:52:31.617Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Index.cshtml",
-              "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Index.cshtml",
-              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Index.cshtml",
-              "RelativeToolTip": "Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Index.cshtml",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAgwCkAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Update.cshtml",
+              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Slider\\Update.cshtml",
+              "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Views\\Slider\\Update.cshtml",
+              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Slider\\Update.cshtml",
+              "RelativeToolTip": "Pustokk.MVC\\Areas\\Admin\\Views\\Slider\\Update.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-11T10:36:24.22Z",
+              "WhenOpened": "2024-11-12T14:25:07.158Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\AutoMapper\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "Pustokk.BLL\\AutoMapper\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\AutoMapper\\MappingProfile.cs",
+              "RelativeToolTip": "Pustokk.BLL\\AutoMapper\\MappingProfile.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAgwC8AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-12T12:20:07.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "Pustokk.MVC\\Areas\\Admin\\Controllers\\CategoryController.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAQwD4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:48:49.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Pustokk.MVC\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Pustokk.MVC\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-12T19:46:33.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "CategoryViewModel.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\ViewModels\\CategoryViewModels\\CategoryViewModel.cs",
               "RelativeDocumentMoniker": "Pustokk.BLL\\ViewModels\\CategoryViewModels\\CategoryViewModel.cs",
@@ -263,44 +366,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SliderController.cs",
-              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Controllers\\SliderController.cs",
-              "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Controllers\\SliderController.cs",
-              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Controllers\\SliderController.cs",
-              "RelativeToolTip": "Pustokk.MVC\\Areas\\Admin\\Controllers\\SliderController.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAkwDEAAAAWAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "SliderManager.cs",
+              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Services\\SliderManager.cs",
+              "RelativeDocumentMoniker": "Pustokk.BLL\\Services\\SliderManager.cs",
+              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Services\\SliderManager.cs",
+              "RelativeToolTip": "Pustokk.BLL\\Services\\SliderManager.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwEcAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T01:07:25.122Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-12T00:57:51.279Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\AutoMapper\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "Pustokk.BLL\\AutoMapper\\MappingProfile.cs",
-              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\AutoMapper\\MappingProfile.cs",
-              "RelativeToolTip": "Pustokk.BLL\\AutoMapper\\MappingProfile.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAkwCsAAAB2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T12:20:07.941Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ProductManager.cs",
-              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Services\\ProductManager.cs",
-              "RelativeDocumentMoniker": "Pustokk.BLL\\Services\\ProductManager.cs",
-              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Services\\ProductManager.cs",
-              "RelativeToolTip": "Pustokk.BLL\\Services\\ProductManager.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAkwIcAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T22:09:29.695Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 20,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Slider\\Index.cshtml",
               "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Views\\Slider\\Index.cshtml",
@@ -312,7 +390,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 19,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\DataContext\\Entities\\Product.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\DataContext\\Entities\\Product.cs",
@@ -324,7 +402,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "SliderViewModel.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\ViewModels\\SliderViewModels\\SliderViewModel.cs",
               "RelativeDocumentMoniker": "Pustokk.BLL\\ViewModels\\SliderViewModels\\SliderViewModel.cs",
@@ -336,7 +414,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
               "Title": "ISliderService.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Services\\Contracts\\ISliderService.cs",
               "RelativeDocumentMoniker": "Pustokk.BLL\\Services\\Contracts\\ISliderService.cs",
@@ -344,12 +422,11 @@
               "RelativeToolTip": "Pustokk.BLL\\Services\\Contracts\\ISliderService.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T00:57:40.088Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-12T00:57:40.088Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 14,
               "Title": "ProductViewModel.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\ViewModels\\ProductViewModels\\ProductViewModel.cs",
               "RelativeDocumentMoniker": "Pustokk.BLL\\ViewModels\\ProductViewModels\\ProductViewModel.cs",
@@ -361,7 +438,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "Slider.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\DataContext\\Entities\\Slider.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\DataContext\\Entities\\Slider.cs",
@@ -373,7 +450,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "ProductImage.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\DataContext\\Entities\\ProductImage.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\DataContext\\Entities\\ProductImage.cs",
@@ -385,7 +462,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 21,
               "Title": "_AdminLayout.cshtml",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
               "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
@@ -397,19 +474,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Create.cshtml",
-              "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Create.cshtml",
-              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Create.cshtml",
-              "RelativeToolTip": "Pustokk.MVC\\Areas\\Admin\\Views\\Product\\Create.cshtml",
-              "ViewState": "AgIAADYAAAAAAAAAAAAkwE8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-12T00:17:03.535Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 22,
               "Title": "ICategoryService.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Services\\Contracts\\ICategoryService.cs",
               "RelativeDocumentMoniker": "Pustokk.BLL\\Services\\Contracts\\ICategoryService.cs",
@@ -421,19 +486,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "CategoryController.cs",
-              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Controllers\\CategoryController.cs",
-              "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Controllers\\CategoryController.cs",
-              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Controllers\\CategoryController.cs",
-              "RelativeToolTip": "Pustokk.MVC\\Areas\\Admin\\Controllers\\CategoryController.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAQwD4AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T14:48:49.508Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "CategoryManager.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Services\\CategoryManager.cs",
               "RelativeDocumentMoniker": "Pustokk.BLL\\Services\\CategoryManager.cs",
@@ -445,7 +498,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\DataContext\\Entities\\Category.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\DataContext\\Entities\\Category.cs",
@@ -457,7 +510,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\DataContext\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\DataContext\\AppDbContext.cs",
@@ -469,7 +522,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "IProductService.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Services\\Contracts\\IProductService.cs",
               "RelativeDocumentMoniker": "Pustokk.BLL\\Services\\Contracts\\IProductService.cs",
@@ -481,7 +534,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "CrudManager.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Services\\CrudManager.cs",
               "RelativeDocumentMoniker": "Pustokk.BLL\\Services\\CrudManager.cs",
@@ -493,7 +546,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "ICrudService.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Services\\Contracts\\ICrudService.cs",
               "RelativeDocumentMoniker": "Pustokk.BLL\\Services\\Contracts\\ICrudService.cs",
@@ -505,7 +558,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "BusinessLogicLayerServiceRegistration.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\BusinessLogicLayerServiceRegistration.cs",
               "RelativeDocumentMoniker": "Pustokk.BLL\\BusinessLogicLayerServiceRegistration.cs",
@@ -517,7 +570,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Category\\Create.cshtml",
               "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Views\\Category\\Create.cshtml",
@@ -529,7 +582,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 33,
               "Title": "EfCoreRepository.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\Repositories\\EfCoreRepository.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\Repositories\\EfCoreRepository.cs",
@@ -541,7 +594,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Category\\Index.cshtml",
               "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Views\\Category\\Index.cshtml",
@@ -553,7 +606,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 32,
               "Title": "Update.cshtml",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\Category\\Update.cshtml",
               "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Views\\Category\\Update.cshtml",
@@ -565,7 +618,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 34,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Areas\\Admin\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "Pustokk.MVC\\Areas\\Admin\\Views\\_ViewImports.cshtml",
@@ -577,7 +630,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 35,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\Program.cs",
               "RelativeDocumentMoniker": "Pustokk.MVC\\Program.cs",
@@ -589,7 +642,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 36,
               "Title": "Tag.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\DataContext\\Entities\\Tag.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\DataContext\\Entities\\Tag.cs",
@@ -601,7 +654,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 42,
               "Title": "20241111111218_SomeChangingInProduct.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\Migrations\\20241111111218_SomeChangingInProduct.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\Migrations\\20241111111218_SomeChangingInProduct.cs",
@@ -613,7 +666,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 43,
               "Title": "20241111110816_Init4.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.DAL\\Migrations\\20241111110816_Init4.cs",
               "RelativeDocumentMoniker": "Pustokk.DAL\\Migrations\\20241111110816_Init4.cs",
@@ -625,7 +678,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 37,
               "Title": "CloudinaryService.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Services\\CloudinaryService.cs",
               "RelativeDocumentMoniker": "Pustokk.BLL\\Services\\CloudinaryService.cs",
@@ -637,7 +690,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 38,
               "Title": "ICloudService.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Services\\Contracts\\ICloudService.cs",
               "RelativeDocumentMoniker": "Pustokk.BLL\\Services\\Contracts\\ICloudService.cs",
@@ -649,7 +702,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 39,
               "Title": "Pustokk.BLL.csproj",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\Pustokk.BLL.csproj",
               "RelativeDocumentMoniker": "Pustokk.BLL\\Pustokk.BLL.csproj",
@@ -661,7 +714,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 40,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.MVC\\appsettings.json",
               "RelativeDocumentMoniker": "Pustokk.MVC\\appsettings.json",
@@ -673,7 +726,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 41,
               "Title": "CloudinaryOptionsViewModel.cs",
               "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\Pustokk.MVC\\Pustokk.BLL\\ViewModels\\OptionViewModels\\CloudinaryOptionsViewModel.cs",
               "RelativeDocumentMoniker": "Pustokk.BLL\\ViewModels\\OptionViewModels\\CloudinaryOptionsViewModel.cs",
