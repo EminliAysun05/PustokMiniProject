@@ -20,7 +20,7 @@ public class CategoryViewModel : IViewModel
 
 public class CategoryCreateViewModel : IViewModel
 {
-    public required string Name { get; set; }
+    public string? Name { get; set; }
     public int? ParentCategoryId { get; set; }
     public List<CategoryViewModel> Categories { get; set; } = new();
 
@@ -32,5 +32,6 @@ public class CategoryUpdateViewModel : IViewModel
     public int Id { get; set; }
     public required string Name { get; set; }
     public int? ParentCategoryId { get; set; }
+    public List<CategoryViewModel> Categories { get; set; } = new();
 
 }

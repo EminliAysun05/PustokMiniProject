@@ -1,17 +1,26 @@
 ﻿@model CategoryCreateViewModel
 
+<h2>Yeni Kateqoriya Yarat</h2>
+
 <form asp-action="Create" method="post">
-    <label for="categoryName">Kateqoriya adı:</label>
-    <input type="text" id="categoryName" asp-for="Name" required>
+    <div class="form-group">
+        <label for="categoryName">Kateqoriya Adı:</label>
+        <input type="text" id="categoryName" asp-for="Name" class="form-control" required />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
 
-    <label for="parentCategory">Üst Kateqoriya:</label>
-    <select id="parentCategory" asp-for="ParentCategoryId">
-        <option value="">Əsas kateqoriya kimi yarat</option>
-        @foreach (var category in Model.Categories)
-        {
-            <option value="@category.Id">@category.Name</option>
-        }
-    </select>
+    <div class="form-group">
+        <label for="parentCategory">Üst Kateqoriya:</label>
+        <select id="parentCategory" asp-for="ParentCategoryId" class="form-control">
+            <option value="@null" selected>Əsas kateqoriya kimi yarat, lazimdisa ust kategoriya ver</option>
+            @foreach (var category in Model.Categories ?? new())
+            {
+                <option value="@category.Id">@category.Name</option>
+            }
+        </select>
+    </div>
 
-    <button type="submit">Yarat</button>
+    <button type="submit" class="btn btn-primary">Yarat</button>
 </form>
+
+

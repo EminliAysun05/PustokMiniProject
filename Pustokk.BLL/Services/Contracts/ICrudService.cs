@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
 using Pustokk.BLL.ViewModels;
+using Pustokk.BLL.ViewModels.CategoryViewModels;
 using Pustokk.DAL.DataContext.Entities.Common;
 using System;
 using System.Collections.Generic;
@@ -24,5 +25,6 @@ namespace Pustokk.BLL.Services.Contracts
         Task<TViewModel> CreateAsync(TCreateViewModel createViewModel);
         Task<TViewModel> UpdateAsync(TUpdateViewModel updateViewModel);
         Task<TViewModel> DeleteAsync(int id);
+        
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Pustokk.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ef9678a7199b1b71d88f55f3dec73cc80a1df33")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6e2e571f0d04ef5bdb78c74ecc80b49054f2405")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pustokk.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pustokk.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Pustokk.BLL.ViewModels.CategoryViewModels;
+using Pustokk.BLL.ViewModels.TagViewModels;
 using Pustokk.DAL.DataContext.Entities;
 using System;
 using System.Collections.Generic;
@@ -41,6 +43,8 @@ namespace Pustokk.BLL.ViewModels.ProductViewModels
         public string? Description { get; set; }
         public required int CategoryId { get; set; }
         public List<int>? TagIds { get; set; }
+        public List<CategoryViewModel>? Categories { get; set; }
+        public List<TagViewModel>? Tags { get; set; } 
         public List<IFormFile>? NewImageFiles { get; set; }
         //emin deyilem
         public bool RemoveOldImages { get; set; }

@@ -5,40 +5,46 @@
 <div class="col-md-6 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <p class="card-description">
-                Create Product
-            </p>
-            <form method="post" class="forms-sample" enctype="multipart/form-data">
-                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <h4 class="card-title">Yeni Məhsul Yaradın</h4>
+            <p class="card-description">Zəhmət olmasa, aşağıdakı məlumatları daxil edin.</p>
 
+            <form method="post" class="forms-sample" enctype="multipart/form-data">
+                <!-- Validation Summary -->
+                <div class="text-danger mb-3" asp-validation-summary="ModelOnly"></div>
+
+                <!-- Name Field -->
                 <div class="form-group">
-                    <label for="exampleInputUsername1">Name</label>
-                    <input class="form-control" id="input1" asp-for="Name" placeholder="Name">
+                    <label for="productName">Məhsulun Adı</label>
+                    <input class="form-control" id="productName" asp-for="Name" placeholder="Məhsulun adını daxil edin">
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
 
-                 <div class="form-group">
-                    <label for="exampleInputUsername1">Description</label>
-                    <input class="form-control" id="input1" asp-for="Description" placeholder="Description">
+                <!-- Description Field -->
+                <div class="form-group">
+                    <label for="productDescription">Açıqlama</label>
+                    <textarea class="form-control" id="productDescription" asp-for="Description" rows="3" placeholder="Məhsul haqqında açıqlama"></textarea>
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
 
+                <!-- Price Field -->
                 <div class="form-group">
-                    <label asp-for="Price"></label>
-                    <input asp-for="Price" class="form-control" type="number" step="0.01" />
+                    <label for="productPrice">Qiymət</label>
+                    <input asp-for="Price" class="form-control" id="productPrice" type="number" step="0.01" placeholder="Məhsulun qiymətini daxil edin">
                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
 
+                <!-- Discount Price Field -->
                 <div class="form-group">
-                    <label asp-for="DisCountPrice"></label>
-                    <input asp-for="DisCountPrice" class="form-control" type="number" step="0.01" />
+                    <label for="productDiscountPrice">Endirimli Qiymət</label>
+                    <input asp-for="DisCountPrice" class="form-control" id="productDiscountPrice" type="number" step="0.01" placeholder="Endirimli qiymət">
                     <span asp-validation-for="DisCountPrice" class="text-danger"></span>
                 </div>
 
-                  <div class="form-group">
-                    <label for="exampleInputUsername1">Category</label>
-                    <select asp-for="CategoryId">
-                        <options selected disabled value="@null">Select Category</options>
+                <!-- Category Selection -->
+                <div class="form-group">
+                    <label for="categorySelect">Kateqoriya</label>
+                    <select asp-for="CategoryId" class="form-control" id="categorySelect">
+                        <option selected disabled value="">Kateqoriya seçin</option>
                         @if (Model.Categories != null)
                         {
                             @foreach (var category in Model.Categories)
@@ -50,9 +56,10 @@
                     <span asp-validation-for="CategoryId" class="text-danger"></span>
                 </div>
 
+                <!-- Tags Selection -->
                 <div class="form-group">
-                    <label for="exampleInputUsername1">Tags</label>
-                    <select asp-for="TagIds" multiple class="form-control">
+                    <label for="tagsSelect">Etiketlər</label>
+                    <select asp-for="TagIds" multiple class="form-control" id="tagsSelect">
                         @if (Model.Tags != null)
                         {
                             @foreach (var tag in Model.Tags)
@@ -64,25 +71,20 @@
                     <span asp-validation-for="TagIds" class="text-danger"></span>
                 </div>
 
-
+                <!-- Main Image Upload -->
                 <div class="form-group">
-                    <label for="exampleInputUsername1">Main image</label>
-                    <input class="form-control" id="input1" asp-for="ImageFiles" placeholder="Name"multiple>
+                    <label for="mainImageUpload">Əsas Şəkil</label>
+                    <input class="form-control" asp-for="ImageFiles" id="mainImageUpload" type="file" multiple>
                     <span asp-validation-for="ImageFiles" class="text-danger"></span>
                 </div>
 
-
-
-                <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                <button class="btn btn-light">Cancel</button>
+                <!-- Submit and Cancel Buttons -->
+                <button type="submit" class="btn btn-primary mr-2">Yarat</button>
+                <a href="@Url.Action("Index", "Product")" class="btn btn-secondary">İmtina et</a>
             </form>
         </div>
     </div>
 </div>
-
-
-
-
 
 
 

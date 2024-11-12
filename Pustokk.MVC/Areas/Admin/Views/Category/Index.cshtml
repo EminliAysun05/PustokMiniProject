@@ -1,43 +1,55 @@
 ﻿
 @model List<CategoryViewModel>
-<h1>Category</h1>
+<h1>Kateqoriyalar</h1>
+
 <div class="row">
-     <div class="col-lg-6 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Basic Table</h4>
-                  <p class="card-description">
-                    Add class <code>.table</code>
-                  </p>
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>Name</th>
-                          <th>ParentCategoryName</th>
-                          <th>Actions</th>
-                        
-                        </tr>
-                      </thead>
-                      <tbody>
-                            @foreach(var item in Model)
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Kateqoriya Siyahısı</h4>
+                <p class="card-description">
+                    Kateqoriyalar haqqında məlumatları <code>.table</code> cədvəlində görsən.
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Kateqoriya Adı</th>
+                                <th>Üst Kateqoriya Adı</th>
+                                <th>Əməliyyatlar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Any())
+                            {
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@(item.ParentCategoryName ?? "Üst kateqoriyası mövcud deyil")</td>
+                                        <td>
+                                            <a class="btn btn-sm btn-warning" asp-action="Update" asp-route-id="@item.Id">
+                                                <i class="fas fa-edit"></i> Yenilə
+                                            </a>
+                                            <a class="btn btn-sm btn-danger"
+                                               asp-action="Delete" asp-route-id="@item.Id"
+                                               onclick="return confirm('Bu kateqoriyanı silmək istədiyinizdən əminsiniz?')">
+                                                <i class="fas fa-trash-alt"></i> Sil
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
                             {
                                 <tr>
-                                    <td>@item.Name</td>
-                                    <td>@item.ParentCategoryName</td>
-                                    <td>
-                                        <a class="btn btn-warning">Update</a>
-                                        <a class="btn btn-danger">Delete</a>
-                                        </td>
+                                    <td colspan="3" class="text-center text-muted">Məlumat yoxdur.</td>
                                 </tr>
                             }
-                            
-                     
-                      </tbody>
+                        </tbody>
                     </table>
-                  </div>
                 </div>
-              </div>
             </div>
-
+        </div>
+    </div>
 </div>

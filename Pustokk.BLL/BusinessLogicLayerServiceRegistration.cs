@@ -13,6 +13,7 @@ namespace Pustokk.BLL
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<ICloudService, CloudinaryService>();
             services.AddScoped<IProductService, ProductManager>();
+            services.AddScoped<ICategoryService, CategoryManager>();
 
             return services;
         }

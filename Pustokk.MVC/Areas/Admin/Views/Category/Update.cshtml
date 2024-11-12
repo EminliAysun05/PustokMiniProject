@@ -1,0 +1,28 @@
+﻿@model CategoryUpdateViewModel
+
+<h2>Kategoriyanı Yenilə</h2>
+
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label for="name">Kategoriya Adı:</label>
+        <input asp-for="Name" class="form-control" id="name" placeholder="Kategoriya adını daxil edin" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="parentCategory">Üst Kategoriya:</label>
+        <select id="parentCategory" asp-for="ParentCategoryId" class="form-control">
+            <option value="@null" selected>Əsas kateqoriya kimi yarat, lazimdisa ust kategoriya ver</option>
+            @foreach (var category in Model.Categories ?? new())
+            {
+                <option value="@category.Id">@category.Name</option>
+            }
+        </select>
+        <span asp-validation-for="ParentCategoryId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Yenilə</button>
+    <a asp-action="Index" class="btn btn-secondary">İmtina et</a>
+</form>

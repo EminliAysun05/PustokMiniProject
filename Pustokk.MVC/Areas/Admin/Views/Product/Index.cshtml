@@ -1,54 +1,62 @@
-﻿<h1>Product</h1>
-<div class="col-lg-6 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Product Table</h4>
-            <p class="card-description">
-                Add class <code>.table</code>
-            </p>
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Profile</th>
-                            <th>VatNo.</th>
-                            <th>Created</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td><label class="badge badge-danger">Pending</label></td>
-                        </tr>
-                        <tr>
-                            <td>Messsy</td>
-                            <td>53275532</td>
-                            <td>15 May 2017</td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
-                        <tr>
-                            <td>John</td>
-                            <td>53275533</td>
-                            <td>14 May 2017</td>
-                            <td><label class="badge badge-info">Fixed</label></td>
-                        </tr>
-                        <tr>
-                            <td>Peter</td>
-                            <td>53275534</td>
-                            <td>16 May 2017</td>
-                            <td><label class="badge badge-success">Completed</label></td>
-                        </tr>
-                        <tr>
-                            <td>Dave</td>
-                            <td>53275535</td>
-                            <td>20 May 2017</td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
-                    </tbody>
-                </table>
+﻿@using Pustokk.BLL.ViewModels.ProductViewModels
+@model List<ProductViewModel>
+<h1>Məhsullar</h1>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Məhsullar Cədvəli</h4>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Şəkil</th>
+                                <th>Ad</th>
+                                <th>Qiymət</th>
+                                <th>Endirimli Qiymət</th>
+                                <th>Kateqoriya</th>
+                                <th>Təsvir</th>
+                                <th>Əməliyyatlar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                        {
+                                            <img src="@item.ImageUrl" alt="Şəkil" style="width: 50px; height: 50px; object-fit: cover;" />
+                                        }
+                                        else
+                                        {
+                                            <span>Şəkil yoxdur</span>
+                                        }
+                                    </td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Price.ToString("0.00") ₼</td>
+                                    <td>
+                                        @if (item.DisCountPrice > 0)
+                                        {
+                                            <span>@item.DisCountPrice.ToString("0.00") ₼</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Endirim yoxdur</span>
+                                        }
+                                    </td>
+                                    <td>@item.Description</td>
+                                    <td>@item.CategoryName</td>
+                                    <td>
+                                        <a class="btn btn-warning btn-sm" asp-action="Update" asp-route-id="@item.Id">Yenilə</a>
+                                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('Bu məhsulu silmək istədiyinizdən əminsinizmi?')">Sil</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

@@ -2,11 +2,16 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using Pustokk.BLL.Extentions;
 using Pustokk.BLL.Services.Contracts;
+using Pustokk.BLL.ViewModels.CategoryViewModels;
 using Pustokk.BLL.ViewModels.ProductViewModels;
+using Pustokk.BLL.ViewModels.TagViewModels;
 using Pustokk.DAL.DataContext.Entities;
+using Pustokk.DAL.Repositories;
 using Pustokk.DAL.Repositories.Contracts;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 
 namespace Pustokk.BLL.Services;
@@ -16,13 +21,19 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
     private readonly ICloudService _cloudService;
     private readonly IProductRepository _productRepository;
     private readonly IMapper _mapper;
+    private readonly ICategoryRepository _categoryRepository;
+    private readonly ITagRepository _tagRepository;
 
-    public ProductManager(ICloudService cloudService, IProductRepository productRepository, IMapper mapper) : base(productRepository, mapper)
+    public ProductManager(ICloudService cloudService, IProductRepository productRepository, IMapper mapper, ICategoryRepository categoryRepository, ITagRepository tagRepository) : base(productRepository, mapper)
     {
         _cloudService = cloudService;
         _productRepository = productRepository;
         _mapper = mapper;
+        _categoryRepository = categoryRepository;
+        _tagRepository = tagRepository;
     }
+
+
 
     public async Task<ProductViewModel> AddProductWithImagesAsync(ProductCreateViewModel createViewModel)//create
     {
@@ -32,7 +43,7 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
 
         product.ProductImages = new List<ProductImage>();
 
-        foreach (var file in createViewModel.ImageFiles)
+        foreach (var file in createViewModel.ImageFiles ?? [])
         {
             if (!file.IsImage() || !file.AllowedSize(2))
                 throw new Exception("Invalid image file");
@@ -49,13 +60,6 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
         return productViewModel;
     }
 
-    //movcud producti tap
-    //melumatlari yenile
-    //kohne sekilleri sil
-    //yenisini elave ele
-    //sekli yukle
-    //yeni productImage
-    //maple qaytar
 
     public override async Task<ProductViewModel> UpdateAsync(ProductUpdateViewModel updateViewModel)
     {
@@ -115,20 +119,67 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
         return _mapper.Map<ProductViewModel>(updatedProduct);
     }
 
+    public override async Task<List<ProductViewModel>> GetAllAsync(
+    Expression<Func<Product, bool>>? predicate = null,
+    Func<IQueryable<Product>, IIncludableQueryable<Product, object>>? include = null,
+    Func<IQueryable<Product>, IOrderedQueryable<Product>>? orderBy = null)
+    {  
+        var products = await _productRepository.GetAllAsync(predicate, include: q => q.Include(p => p.ProductTags).Include(p => p.ProductImages), orderBy);
 
+        return _mapper.Map<List<ProductViewModel>>(products);
+    }
+
+
+    public async Task<List<CategoryViewModel>> GetCategoriesAsync()
+    {
+        var categories = await _categoryRepository.GetAllAsync();
+        return _mapper.Map<List<CategoryViewModel>>(categories);
+    }
+
+    public async Task<List<TagViewModel>> GetTagsAsync()
+    {
+        var tags = await _tagRepository.GetAllAsync();
+        return _mapper.Map<List<TagViewModel>>(tags);
+    }
+
+    public override async Task<ProductViewModel> GetAsync(int id)
+    {
+        var product = await _productRepository.GetAsync(
+            p=>p.Id == id,
+            include: query => query
+            .Include(p => p.Category)
+            .Include(p=>p.ProductTags).ThenInclude(pt=>pt.Tag!));
+
+        if (product == null) throw new Exception("Not found");
+
+        return _mapper.Map<ProductViewModel>(product);
+    }
+
+    public override async Task<ProductViewModel> DeleteAsync(int id)
+    {
+        var product = await _productRepository.GetAsync(
+            p => p.Id == id,
+            include: query => query
+                .Include(p => p.ProductImages)
+                .Include(p => p.ProductTags)
+        );
+
+        if (product == null)
+        {
+            throw new Exception("Product not found");
+        }
+
+        foreach (var image in product.ProductImages)
+        {
+            await _cloudService.FileDeleteAsync(image.ImageUrl);
+        }
+
+        var deletedProduct = await _productRepository.DeleteAsync(product);
+
+        return _mapper.Map<ProductViewModel>(deletedProduct);
+    }
 }
 
 
 
-// tutaq ki burda sekil yaradacaqsan
 
-
-//public async Task CreateImage(IFormFile image)
-//{
-//    string imageUrl=await _cloudService.FileCreateAsync(image);
-
-//    //bu imageUr burda url gəldi sənə düzdü mü və product in var
-//    //product.ImageUrl=imageUrl
-//    //_context.Products.AddAsync(product)
-//    // qaranliqaa q okay men fiziki olaraq gelib harasa copy elemirem burda duzdu?yeapp cloudinary ozu eliyir anladimm heiqetenn cox coxx saolllll xosduuu bb
-//}
