@@ -23,7 +23,10 @@ namespace Pustokk.MVC.Controllers
             // View-a gönd?ririk
             return View(products);
         }
-
+           public IActionResult Details(string name)
+        {
+            return View(model : name);
+        }
        
     }
 }
