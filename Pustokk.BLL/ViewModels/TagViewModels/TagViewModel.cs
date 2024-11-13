@@ -14,7 +14,7 @@ namespace Pustokk.BLL.ViewModels.TagViewModels
 
     public class TagCreateViewModel : IViewModel
     {
-        public required string Name { get; set; }
+        public  string? Name { get; set; }
     }
 
     public class TagUpdateViewModel : IViewModel

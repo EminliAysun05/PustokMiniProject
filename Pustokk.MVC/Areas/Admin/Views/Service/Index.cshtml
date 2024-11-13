@@ -1,0 +1,42 @@
+﻿@using Pustokk.BLL.ViewModels.ServiceViewModels
+@model IEnumerable<ServiceViewModel>
+
+<h2>Xidmətlər</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Başlıq</th>
+            <th>Açıqlama</th>
+            <th>Simge</th>
+            <th>Əməliyyatlar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var service in Model)
+        {
+            <tr>
+                <td>@service.Id</td>
+                <td>@service.Title</td>
+                <td>@service.Description</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(service.IconUrl))
+                    {
+                        <img src="@service.IconUrl" alt="Simge" width="50" />
+                    }
+                    else
+                    {
+                        <span>Simge yoxdur</span>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@service.Id" class="btn btn-warning">Yenilə</a>
+                    <a asp-action="Delete" asp-route-id="@service.Id" class="btn btn-danger" onclick="return confirm('Silinsinmi?')">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">Yeni Xidmət Əlavə Et</a>

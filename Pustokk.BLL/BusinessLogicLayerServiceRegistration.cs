@@ -15,6 +15,9 @@ namespace Pustokk.BLL
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<ICategoryService, CategoryManager>();
             services.AddScoped<ISliderService, SliderManager>();
+            services.AddScoped<IServiceService, ServiceManager>();
+            services.AddScoped<ITagService, TagManager>();
+            services.AddScoped<ISettingService, SettingManager>();
 
             return services;
         }

@@ -1,0 +1,22 @@
+﻿@using Pustokk.BLL.ViewModels.ServiceViewModels
+@model ServiceCreateViewModel
+
+<h2>Yeni Xidmət Yaradın</h2>
+<form method="post" enctype="multipart/form-data">
+    <div>
+        <label>Başlıq</label>
+        <input asp-for="Title" />
+        <span asp-validation-for="Title"></span>
+    </div>
+    <div>
+        <label>Təsvir</label>
+        <textarea asp-for="Description"></textarea>
+        <span asp-validation-for="Description"></span>
+    </div>
+    <div>
+        <label>İkon Faylı</label>
+        <input asp-for="IconFile" type="file" />
+        <span asp-validation-for="IconFile"></span>
+    </div>
+    <button type="submit">Yarat</button>
+</form>

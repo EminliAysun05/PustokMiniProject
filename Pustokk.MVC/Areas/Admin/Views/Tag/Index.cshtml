@@ -1,0 +1,28 @@
+﻿@using Pustokk.BLL.ViewModels.TagViewModels
+@model IEnumerable<TagViewModel>
+
+<h2>Tag Siyahısı</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Əməliyyatlar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tag in Model)
+        {
+            <tr>
+                <td>@tag.Name</td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@tag.Id" class="btn btn-warning btn-sm">Yenilə</a>
+                    <form asp-action="Delete" asp-route-id="@tag.Id" method="post" class="d-inline" onsubmit="return confirm('Bu etiketi silmək istədiyinizə əminsiniz?');">
+                        <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Create" class="btn btn-primary">Yeni Tag Əlavə Et</a>
+

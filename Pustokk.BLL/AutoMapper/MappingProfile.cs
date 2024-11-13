@@ -75,6 +75,7 @@ namespace Pustokk.BLL.AutoMapper
             CreateMap<Service, ServiceViewModel>().ReverseMap();
             CreateMap<Service, ServiceCreateViewModel>().ReverseMap();
             CreateMap<Service, ServiceUpdateViewModel>().ReverseMap();
+            CreateMap<ServiceViewModel, ServiceUpdateViewModel>().ReverseMap();
 
             // Slider 
             CreateMap<Slider, SliderViewModel>().ReverseMap();
@@ -86,9 +87,15 @@ namespace Pustokk.BLL.AutoMapper
             CreateMap<Tag, TagViewModel>().ReverseMap();
             CreateMap<Tag, TagCreateViewModel>().ReverseMap();
             CreateMap<Tag, TagUpdateViewModel>().ReverseMap();
+            CreateMap<TagViewModel, TagUpdateViewModel>().ReverseMap();
 
             //setting, subscribe
+
             CreateMap<Setting, SettingViewModel>().ReverseMap();
+            CreateMap<Setting, SettingCreateViewModel>().ReverseMap();
+            CreateMap<Setting, SettingUpdateViewModel>().ReverseMap();
+            CreateMap<SettingViewModel, SettingUpdateViewModel>().ReverseMap();
+
             CreateMap<Subscribe, SubscribeViewModel>().ReverseMap();
         }
     }

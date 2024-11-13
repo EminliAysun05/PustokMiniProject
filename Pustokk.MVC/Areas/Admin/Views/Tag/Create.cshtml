@@ -1,0 +1,15 @@
+﻿@using Pustokk.BLL.ViewModels.TagViewModels
+@model TagCreateViewModel
+
+<h2>Yeni Tag Əlavə Et</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="Name">Tag Adı</label>
+        <input asp-for="Name" class="form-control" placeholder="Tag adını daxil edin" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Əlavə Et</button>
+    <a asp-action="Index" class="btn btn-secondary">İmtina Et</a>
+</form>
+

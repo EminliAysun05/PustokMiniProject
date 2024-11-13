@@ -1,0 +1,21 @@
+﻿@using Pustokk.BLL.ViewModels.TagViewModels
+@model TagUpdateViewModel
+
+<h2>Tag Yeniləmə</h2>
+
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <!-- Tag Adı Daxil Edilən Sahə -->
+    <div class="form-group">
+        <label for="Name">Tag Adı</label>
+        <input asp-for="Name" class="form-control" placeholder="Tag adını daxil edin" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <!-- Yenilə və İmtina Et Düymələri -->
+    <button type="submit" class="btn btn-primary">Yenilə</button>
+    <a asp-action="Index" class="btn btn-secondary">İmtina Et</a>
+</form>
+
+
