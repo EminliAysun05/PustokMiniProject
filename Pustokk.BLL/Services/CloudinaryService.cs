@@ -8,7 +8,7 @@ using Pustokk.BLL.ViewModels;
 
 namespace Pustokk.BLL.Services;
 
-internal class CloudinaryService : ICloudService
+public class CloudinaryService : ICloudService
 {
     private readonly IConfiguration _configuration;
     private readonly CloudinaryOptionsViewModel _optionsVM;

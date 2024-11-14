@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Pustokk.BLL.Services.Contracts;
+using Pustokk.BLL.UI.Services;
 using Pustokk.MVC.Models;
 using System.Diagnostics;
 
@@ -8,20 +9,18 @@ namespace Pustokk.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IProductService _productService;
+        private readonly IHomeService _homeService;
 
-        public HomeController(ILogger<HomeController> logger, IProductService productService)
+        public HomeController(ILogger<HomeController> logger, IProductService productService, IHomeService homeService)
         {
             _logger = logger;
-            _productService = productService;
+            _homeService = homeService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var products = await _productService.GetAllAsync();
-
-            // View-a gönd?ririk
-            return View(products);
+            var viewModel = await _homeService.GetHomeViewModelAsync();
+            return View(viewModel);
         }
            public IActionResult Details(string name)
         {

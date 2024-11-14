@@ -28,7 +28,8 @@ namespace Pustokk.MVC.Areas.Admin.Controllers
             return View(new SliderCreateViewModel
             {
                 Title = string.Empty, 
-                Description = string.Empty
+                Description = string.Empty,
+                ButtonText = string.Empty,
             });
         }
 

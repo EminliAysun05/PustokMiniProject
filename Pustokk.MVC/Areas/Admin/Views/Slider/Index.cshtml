@@ -13,7 +13,9 @@
                             <th>Şəkil</th>
                             <th>Başlıq</th>
                             <th>Alt Başlıq</th>
+                            <th>Button yazisi</th>
                             <th>Əməliyyatlar</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -28,6 +30,7 @@
                                 </td>
                                 <td>@item.Title</td>
                                 <td>@item.Description</td>
+                                <td>@item.ButtonText</td>
                                 <td>
                                     <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Yenilə</a>
                                     <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm" onclick="return confirm('Bu slayderi silmək istədiyinizdən əminsinizmi?')">Sil</a>

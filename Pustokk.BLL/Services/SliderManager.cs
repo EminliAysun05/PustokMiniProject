@@ -54,6 +54,7 @@ public class SliderManager : CrudManager<Slider, SliderViewModel, SliderCreateVi
 
         slider.Title = updateViewModel.Title;
         slider.Description = updateViewModel.Description!;
+        slider.ButtonText = updateViewModel.ButtonText!;
 
         var updatedSlider = await _sliderRepository.UpdateAsync(slider);
         return _mapper.Map<SliderViewModel>(updatedSlider);

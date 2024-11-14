@@ -6530,9 +6530,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\namjoon\\Source\\Repos\\PustokMiniProjecttt\\Pustokk.BLL\\Pustokk.BLL.csproj",
+      "projectUniqueName": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjecttt\\Pustokk.BLL\\Pustokk.BLL.csproj",
       "projectName": "Pustokk.BLL",
-      "projectPath": "C:\\Users\\namjoon\\Source\\Repos\\PustokMiniProjecttt\\Pustokk.BLL\\Pustokk.BLL.csproj",
+      "projectPath": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjecttt\\Pustokk.BLL\\Pustokk.BLL.csproj",
       "packagesPath": "C:\\Users\\namjoon\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\namjoon\\Source\\Repos\\PustokMiniProjecttt\\Pustokk.BLL\\obj\\",
       "projectStyle": "PackageReference",
@@ -6556,8 +6556,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\namjoon\\Source\\Repos\\PustokMiniProjecttt\\Pustokk.DAL\\Pustokk.DAL.csproj": {
-              "projectPath": "C:\\Users\\namjoon\\Source\\Repos\\PustokMiniProjecttt\\Pustokk.DAL\\Pustokk.DAL.csproj"
+            "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjecttt\\Pustokk.DAL\\Pustokk.DAL.csproj": {
+              "projectPath": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjecttt\\Pustokk.DAL\\Pustokk.DAL.csproj"
             }
           }
         }

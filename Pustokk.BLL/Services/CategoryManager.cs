@@ -94,5 +94,11 @@ namespace Pustokk.BLL.Services
             return _mapper.Map<CategoryViewModel>(category);
             
         }
+
+        public async Task<List<CategoryViewModel>> GetAllAsync()
+        {
+            var categories = await _categoryRepository.GetAllAsync();
+            return _mapper.Map<List<CategoryViewModel>>(categories);
+        }
     }
 }

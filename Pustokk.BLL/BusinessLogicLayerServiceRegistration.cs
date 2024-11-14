@@ -2,6 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Pustokk.BLL.Services;
 using Pustokk.BLL.Services.Contracts;
+using Pustokk.BLL.UI.Services;
+using Pustokk.BLL.UI.Services.Contracts;
 using System.Reflection;
 
 namespace Pustokk.BLL
@@ -18,6 +20,8 @@ namespace Pustokk.BLL
             services.AddScoped<IServiceService, ServiceManager>();
             services.AddScoped<ITagService, TagManager>();
             services.AddScoped<ISettingService, SettingManager>();
+            services.AddScoped<ILayoutService, LayoutService>();
+            services.AddScoped<IHomeService, HomeManager>();
 
             return services;
         }

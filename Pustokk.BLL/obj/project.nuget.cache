@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dj+eomUihsA=",
+  "dgSpecHash": "toocP+E20TA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\namjoon\\Source\\Repos\\PustokMiniProjecttt\\Pustokk.BLL\\Pustokk.BLL.csproj",
+  "projectFilePath": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjecttt\\Pustokk.BLL\\Pustokk.BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\namjoon\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\namjoon\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

@@ -15,5 +15,6 @@ namespace Pustokk.BLL.Services.Contracts
         Task<CategoryViewModel> UpdateAsync(CategoryUpdateViewModel model);
         Task<CategoryViewModel?> GetAsync(int id);
         Task<CategoryViewModel> DeleteAsync(int id);
+        Task<List<CategoryViewModel>> GetAllAsync();
     }
 }
