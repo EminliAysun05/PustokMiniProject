@@ -8,18 +8,11 @@ namespace Pustokk.BLL.ViewModels.AppUserViewModels
 {
     public class AppUserViewModel : IViewModel
     {
-    }
-    public class LoginViewModel : IViewModel
-    {
-        public required string EmailOrUserName { get; set; }
-        public required string Password { get; set; }
-        public bool SaveMe { get; set; } = false;
-    }
-
-    public class RegisterViewModel : IViewModel
-    {
+        public int Id { get; set; }
         public required string Email { get; set; }
-        public required string Username { get; set; }
-        public  required string Password { get; set; }
+        public List<string>? Roles { get; set; }
+        public bool IsActive { get; set; }
+        public required string FullName { get; set; }
+       // public DateTime RegistrationDate { get; set; }
     }
 }

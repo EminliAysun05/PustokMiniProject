@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Pustokk.BLL.Services;
 using Pustokk.BLL.Services.Contracts;
@@ -22,6 +23,11 @@ namespace Pustokk.BLL
             services.AddScoped<ISettingService, SettingManager>();
             services.AddScoped<ILayoutService, LayoutService>();
             services.AddScoped<IHomeService, HomeManager>();
+            services.AddScoped<IAccountService, AccountManager>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IAdminService, AdminService>();
+
+            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
             return services;
         }

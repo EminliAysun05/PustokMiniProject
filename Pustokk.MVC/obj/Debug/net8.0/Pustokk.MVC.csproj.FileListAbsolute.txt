@@ -540,3 +540,7 @@ C:\Users\namjoon\source\repos\PustokMiniProjecttt\Pustokk.MVC\obj\Debug\net8.0\r
 C:\Users\namjoon\source\repos\PustokMiniProjecttt\Pustokk.MVC\obj\Debug\net8.0\Pustokk.MVC.pdb
 C:\Users\namjoon\source\repos\PustokMiniProjecttt\Pustokk.MVC\obj\Debug\net8.0\Pustokk.MVC.genruntimeconfig.cache
 C:\Users\namjoon\source\repos\PustokMiniProjecttt\Pustokk.MVC\obj\Debug\net8.0\ref\Pustokk.MVC.dll
+C:\Users\namjoon\source\repos\PustokMiniProjecttt\Pustokk.MVC\obj\Debug\net8.0\Pustokk.MVC.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\namjoon\source\repos\PustokMiniProjecttt\Pustokk.MVC\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\namjoon\source\repos\PustokMiniProjecttt\Pustokk.MVC\bin\Debug\net8.0\MailKit.dll
+C:\Users\namjoon\source\repos\PustokMiniProjecttt\Pustokk.MVC\bin\Debug\net8.0\MimeKit.dll

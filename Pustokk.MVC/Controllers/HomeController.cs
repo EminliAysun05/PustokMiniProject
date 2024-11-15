@@ -17,15 +17,19 @@ namespace Pustokk.MVC.Controllers
             _homeService = homeService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? categoryId)
         {
-            var viewModel = await _homeService.GetHomeViewModelAsync();
+            var viewModel = await _homeService.GetHomeViewModelAsync(categoryId);
             return View(viewModel);
         }
-           public IActionResult Details(string name)
-        {
-            return View(model : name);
-        }
-       
+        //public async  Task<IActionResult> Details(int id)
+        //{
+        //   var product = await _homeService.GetProductDetailsAsync(id);
+
+        //    if(product == null) return NotFound();
+
+        //    return View(product);
+        //}
+
     }
 }

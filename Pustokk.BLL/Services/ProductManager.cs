@@ -8,6 +8,7 @@ using Pustokk.BLL.Services.Contracts;
 using Pustokk.BLL.ViewModels.CategoryViewModels;
 using Pustokk.BLL.ViewModels.ProductViewModels;
 using Pustokk.BLL.ViewModels.TagViewModels;
+using Pustokk.DAL.DataContext;
 using Pustokk.DAL.DataContext.Entities;
 using Pustokk.DAL.Repositories;
 using Pustokk.DAL.Repositories.Contracts;
@@ -23,14 +24,16 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
     private readonly IMapper _mapper;
     private readonly ICategoryRepository _categoryRepository;
     private readonly ITagRepository _tagRepository;
+    private readonly AppDbContext _context;
 
-    public ProductManager(ICloudService cloudService, IProductRepository productRepository, IMapper mapper, ICategoryRepository categoryRepository, ITagRepository tagRepository) : base(productRepository, mapper)
+    public ProductManager(ICloudService cloudService, IProductRepository productRepository, IMapper mapper, ICategoryRepository categoryRepository, ITagRepository tagRepository, AppDbContext context) : base(productRepository, mapper)
     {
         _cloudService = cloudService;
         _productRepository = productRepository;
         _mapper = mapper;
         _categoryRepository = categoryRepository;
         _tagRepository = tagRepository;
+        _context = context;
     }
 
 
@@ -51,6 +54,22 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
             string imageUrl = await _cloudService.FileCreateAsync(file);
             var productImage = new ProductImage { ImageUrl = imageUrl, Product = product };
             product.ProductImages.Add(productImage);
+
+        }
+            product.ProductTags = [];
+
+        foreach (var tagId in createViewModel.TagIds)
+        {
+            
+            //isExistTag
+
+            ProductTag productTag = new()
+            {
+                Product = product,
+                TagId = tagId
+            };
+
+            product.ProductTags.Add(productTag);
 
         }
 
@@ -136,7 +155,9 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
                     .Include(p => p.ProductImages),
      orderBy);
 
-        return _mapper.Map<List<ProductViewModel>>(products);
+        var vms = _mapper.Map<List<ProductViewModel>>(products);
+
+        return vms;
     }
 
 
@@ -155,11 +176,11 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
     public override async Task<ProductViewModel?> GetAsync(int id)
     {
         var product = await _productRepository.GetAsync(
-            p=>p.Id == id,
+            p => p.Id == id,
             include: query => query
             .Include(p => p.Category)
-            .Include(p=>p.ProductTags).ThenInclude(pt=>pt.Tag!)
-            .Include(p=>p.ProductImages));
+            .Include(p => p.ProductTags).ThenInclude(pt => pt.Tag!)
+            .Include(p => p.ProductImages));
 
         if (product == null) throw new Exception("Not found");
 
@@ -188,6 +209,19 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
         var deletedProduct = await _productRepository.DeleteAsync(product);
 
         return _mapper.Map<ProductViewModel>(deletedProduct);
+    }
+
+
+    public async Task<List<ProductViewModel>> GetByCategoryIdAsync(int categoryId)
+    {
+        var productCategory = await _context.Products
+                              .Where(p => p.CategoryId == categoryId)
+                              .Include(p => p.ProductImages)
+                              .ToListAsync();
+
+         var dtos= _mapper.Map<List<ProductViewModel>>(productCategory);
+
+        return dtos;
     }
 }
 

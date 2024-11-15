@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Query;
 using Pustokk.DAL.DataContext;
 using Pustokk.DAL.DataContext.Entities.Common;
+using Pustokk.DAL.Paginate;
 using Pustokk.DAL.Repositories.Contracts;
 using System;
 using System.Collections;
@@ -85,6 +86,21 @@ namespace Pustokk.DAL.Repositories
             var result = await query.FirstOrDefaultAsync();
 
             return result;
+        }
+
+        public async Task<Paginate<T>> GetListAsync(Expression<Func<T, bool>>? predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, int index = 0, int size = 10, bool enableTracking = true)
+        {
+            IQueryable<T> queryable = _context.Set<T>();
+
+            if (!enableTracking) queryable = queryable.AsNoTracking();
+
+            if (include != null) queryable = include(queryable);
+
+            if (predicate != null) queryable = queryable.Where(predicate);
+
+            if (orderBy != null) queryable = orderBy(queryable);
+
+            return await queryable.ToPaginateAsync(index, size);
         }
 
         public IQueryable<T> Query()

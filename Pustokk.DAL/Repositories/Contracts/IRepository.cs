@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
 using Pustokk.DAL.DataContext.Entities.Common;
+using Pustokk.DAL.Paginate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,5 +19,9 @@ namespace Pustokk.DAL.Repositories.Contracts
         Task<T> CreateAsync(T entity);
         Task<T> UpdateAsync(T entity);
         Task<T> DeleteAsync(T entity);
+        Task<Paginate<T>> GetListAsync(Expression<Func<T, bool>>? predicate = null,
+                                    Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
+                                    Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null,
+                                    int index = 0, int size = 10, bool enableTracking = true);
     }
 }

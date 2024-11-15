@@ -9,5 +9,6 @@ namespace Pustokk.BLL.Services.Contracts
     public interface ILayoutService
     {
         Task<Dictionary<string, string>> GetSettingsAsync();
+        //Task<List<>> GetBasketAsync();
     }
 }

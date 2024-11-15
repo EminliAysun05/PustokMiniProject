@@ -1,0 +1,91 @@
+﻿@using Pustokk.BLL.ViewModels.AppUserViewModels
+@using Pustokk.DAL.DataContext.Entities
+@model List<AppUser>
+
+<h2>Users List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>
+                    <form asp-controller="Admin" asp-action="ChangeUserRole" method="post">
+                        <input type="hidden" name="userId" value="@user.Id" />
+                        <select name="newRole" onchange="this.form.submit()">
+                            <option selected disabled>Change Role</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Moderator">Moderator</option>
+                            <option value="Member">Member</option>
+                        </select>
+                    </form>
+                </td>
+                <td>
+                    @if (user.IsActive)
+                    {
+                        <span class="text-success">active</span>
+                    }
+                    else
+                    {
+                        <span class="text-danger">ınactive</span>
+                    }
+                </td>
+                <td>
+                    <form asp-controller="Admin" asp-action="UseerActivation" method="post">
+                        <input type="hidden" name="userId" value="@user.Id" />
+                        <input type="hidden" name="isActive" value="@(!user.IsActive)" />
+                        <button type="submit" class="btn btn-sm btn-warning">
+                            @(user.IsActive ? "Deactivate" : "Activate")
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* <script>
+    $(document).on('change', 'select[name="newRole"]', function () {
+        var form = $(this).closest('form');
+        $.ajax({
+            url: form.attr('action'),
+            type: form.attr('method'),
+            data: form.serialize(),
+            success: function (response) {
+                alert('Role successfully updated');
+                location.reload(); 
+            },
+            error: function () {
+                alert('Failed to update role');
+            }
+        });
+    });
+
+    $(document).on('click', 'button[name="toggle-status"]', function (e) {
+        e.preventDefault();
+        var form = $(this).closest('form');
+        $.ajax({
+            url: form.attr('action'),
+            type: form.attr('method'),
+            data: form.serialize(),
+            success: function (response) {
+                alert('User status updated successfully');
+                location.reload(); 
+            },
+            error: function () {
+                alert('Failed to update user status');
+            }
+        });
+    });
+</script> *@
+
+

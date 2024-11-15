@@ -1,21 +1,16 @@
-﻿using Pustokk.BLL.ViewModels.ProductViewModels;
-using Pustokk.DAL.DataContext.Entities;
-using System;
-
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore.Query;
-using System.Linq.Expressions;
-using Pustokk.BLL.ViewModels.TagViewModels;
+﻿using Microsoft.EntityFrameworkCore.Query;
 using Pustokk.BLL.ViewModels.CategoryViewModels;
+using Pustokk.BLL.ViewModels.ProductViewModels;
+using Pustokk.BLL.ViewModels.TagViewModels;
+using Pustokk.DAL.DataContext.Entities;
+using System.Linq.Expressions;
 
 namespace Pustokk.BLL.Services.Contracts;
 
 public interface IProductService 
 {
+    // Task<ProductViewModel> GetByCategoryIdAsync(int categoryId);
+    Task<List<ProductViewModel>> GetByCategoryIdAsync(int categoryId);
     Task<ProductViewModel> DeleteAsync(int id);
     Task<ProductViewModel?> GetAsync(int id);
     Task<List<CategoryViewModel>> GetCategoriesAsync();

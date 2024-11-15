@@ -34,7 +34,7 @@ namespace Pustokk.BLL.ViewModels.ProductViewModels
         public  decimal? Price { get; set; }
         public string? Description { get; set; }
         public  int CategoryId { get; set; }
-        public List<int>? TagIds { get; set; }
+        public List<int> TagIds { get; set; } = new();
         public List<Tag> Tags { get; set; } = new List<Tag>();
         public List<Category> Categories { get; set; } = new List<Category>();
         public decimal? DisCountPrice { get; set; }
@@ -58,6 +58,15 @@ namespace Pustokk.BLL.ViewModels.ProductViewModels
         public List<string>? ExistingImageUrls { get; set; }
         public decimal DisCountPrice { get; set; }
     }
+    //public class ProductDetailsViewModel : IViewModel
+    //{
+    //    public int Id { get; set; }
+    //    public required string Name { get; set; }
+    //    public decimal Price { get; set; }
+    //    public required string Description { get; set; }
+    //    public List<string> ImageUrls { get; set; } = new();
+    //    public required string CategoryName { get; set; }
+    //}
 }
 
 

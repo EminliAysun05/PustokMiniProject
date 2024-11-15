@@ -22,9 +22,9 @@ namespace Pustokk.BLL.AutoMapper
         public MappingProfile()
         {
             CreateMap<Product, ProductViewModel>()
-      .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category != null ? src.Category.Name : ""))
-      .ForMember(dest => dest.TagNames, opt => opt.MapFrom(src => src.ProductTags.Select(pt => pt.Tag.Name).ToList()))  
-      .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ProductImages.Select(pi => pi.ImageUrl).ToList()));
+                  .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category != null ? src.Category.Name : ""))
+                  .ForMember(dest => dest.TagNames, opt => opt.MapFrom(src => src.ProductTags.Select(pt => pt.Tag != null ? pt.Tag!.Name : "")))
+                  .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ProductImages.Select(pi => pi.ImageUrl).ToList()));
 
 
             CreateMap<Product, ProductCreateViewModel>()
@@ -38,7 +38,7 @@ namespace Pustokk.BLL.AutoMapper
                 .ReverseMap()
                 .ForPath(src => src.ProductTags, opt => opt.Ignore());
 
-           
+
             CreateMap<ProductTag, TagViewModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.TagId))
                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Tag != null ? src.Tag.Name : string.Empty))
@@ -65,6 +65,7 @@ namespace Pustokk.BLL.AutoMapper
             CreateMap<AppUser, RegisterViewModel>().ReverseMap();
             CreateMap<AppUser, LoginViewModel>().ReverseMap();
             CreateMap<AppUser, AppUserViewModel>().ReverseMap();
+          //  CreateMap<AppUser, AppUserViewModel>();
 
             //ProductImage
             CreateMap<ProductImage, ProductImageViewModel>().ReverseMap();

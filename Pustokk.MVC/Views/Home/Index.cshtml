@@ -92,8 +92,7 @@ Home Slider Tab
                 @foreach (var category in Model.Categories)
                 {
                     <li class="nav-item">
-                        <a class="nav-link active" id="shop-tab" data-toggle="tab" href="#shop" role="tab"
-                           aria-controls="shop" aria-selected="true">
+                        <a class="nav-link active" asp-action="Index" asp-route-categoryId="@category.Id" id="shop-tab" >
                             @category.Name
                         </a>
                         <span class="arrow-icon"></span>
@@ -118,7 +117,7 @@ Home Slider Tab
                             {"breakpoint":320, "settings": {"slidesToShow": 1} }
                         ]'>
 
-                            @foreach (var product in Model.Products)
+                            @foreach (var product in Model.SelectedProducts)
                         {
                             <div class="single-slide">
                                 <div class="product-card">

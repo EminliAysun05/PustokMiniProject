@@ -11,7 +11,7 @@
         "projectName": "Pustokk.DAL",
         "projectPath": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjecttt\\Pustokk.DAL\\Pustokk.DAL.csproj",
         "packagesPath": "C:\\Users\\namjoon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\namjoon\\Source\\Repos\\PustokMiniProjecttt\\Pustokk.DAL\\obj\\",
+        "outputPath": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjecttt\\Pustokk.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.8.0, )"
+            },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
               "version": "[2.2.0, )"
