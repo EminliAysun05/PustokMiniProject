@@ -223,6 +223,37 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
 
         return dtos;
     }
+
+    public async Task<ProductDetailsViewModel> GetProductDetailsAsync(int productId)
+    {
+        var product = await _productRepository.GetAsync(
+    predicate: x => x.Id == productId,
+    include: query => query
+        .Include(p => p.Category)
+        .Include(p => p.ProductImages)
+);
+
+        if (product == null)
+            throw new Exception("Product not found");
+
+       // var relatedProducts = await GetRelatedProductsAsync(product.CategoryId, productId);
+
+        return new ProductDetailsViewModel
+        {
+            Id = product.Id,
+            Name = product.Name,
+            Description = product.Description,
+            Price = product.Price,
+            DiscountPrice = product.DisCountPrice,
+            ProductCode = product.ProductCode,
+            Brand = product.Brand,
+            Availability = product.Availability,
+            RewardPoints = product.RewardPoints,
+            CategoryName = product.Category.Name,
+            ImageUrls = product.ProductImages.Select(pi => pi.ImageUrl).ToList(),
+           // RelatedProducts = relatedProducts
+        };
+    }
 }
 
 

@@ -1,0 +1,126 @@
+﻿@using Pustokk.BLL.ViewModels.BasketItemViewModels
+@model List<GetBasketViewModel>
+
+<main class="cart-page-main-block inner-page-sec-padding-bottom">
+    <div class="cart_area cart-area-padding">
+        <div class="container">
+            <div class="page-section-title">
+                <h1>Shopping Cart</h1>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <form action="#" class="">
+                        <!-- Cart Table -->
+                        <div class="cart-table table-responsive mb--40">
+                            <table class="table">
+                                <!-- Head Row -->
+                                <thead>
+                                    <tr>
+                                        <th class="pro-remove"></th>
+                                        <th class="pro-thumbnail">Image</th>
+                                        <th class="pro-title">Product</th>
+                                        <th class="pro-price">Price</th>
+                                        <th class="pro-quantity">Quantity</th>
+                                        <th class="pro-subtotal">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var basketItem in Model)
+                                    {
+                                        <tr>
+                                            <td class="pro-remove">
+                                                <a href="#"><i class="far fa-trash-alt"></i></a>
+                                            </td>
+                                            <td class="pro-thumbnail">
+                                                <a href="#">
+                                                    <img src="@basketItem.ImagePath" alt="@basketItem.Name" style="width: 80px;">
+                                                </a>
+                                            </td>
+                                            <td class="pro-title">
+                                                <a href="#">@basketItem.Name</a>
+                                            </td>
+                                            <td class="pro-price">
+                                                <span>@basketItem.Price.ToString("C")</span>
+                                            </td>
+                                            <td class="pro-quantity">
+                                                <div class="input-group quantity-input-group">
+                                                    <button class="btn btn-outline-secondary decrement-btn" type="button" data-id="@basketItem.ProductId">-</button>
+                                                    <input type="number" class="form-control text-center quantity-input" value="@basketItem.Count" min="1">
+                                                    <button class="btn btn-outline-secondary increment-btn" type="button" data-id="@basketItem.ProductId">+</button>
+                                                </div>
+                                            </td>
+                                            <td class="pro-subtotal">
+                                                <span>@(basketItem.Price * basketItem.Count).ToString("C")</span>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Increment button
+        document.querySelectorAll('.increment-btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const input = this.closest('.quantity-input-group').querySelector('.quantity-input');
+                let currentValue = parseInt(input.value) || 1;
+                input.value = currentValue + 1;
+            });
+        });
+
+        // Decrement button
+        document.querySelectorAll('.decrement-btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const input = this.closest('.quantity-input-group').querySelector('.quantity-input');
+                let currentValue = parseInt(input.value) || 1;
+                if (currentValue > 1) {
+                    input.value = currentValue - 1;
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    .quantity-input-group {
+        max-width: 120px;
+        margin: 0 auto;
+    }
+
+    .quantity-input {
+        width: 50px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+
+    .increment-btn, .decrement-btn {
+        width: 35px;
+        height: 35px;
+        padding: 0;
+        border: 1px solid #ddd;
+    }
+
+    .pro-thumbnail img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+
+    .pro-remove a {
+        color: red;
+        font-size: 1.2rem;
+    }
+
+        .pro-remove a:hover {
+            color: darkred;
+        }
+</style>

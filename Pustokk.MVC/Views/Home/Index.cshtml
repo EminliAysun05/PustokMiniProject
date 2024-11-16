@@ -159,7 +159,7 @@ Home Slider Tab
                                                     }
                                                 </a>
                                                 <div class="hover-btns">
-                                                    <a href="cart.html" class="single-btn">
+                                                    <a asp-action="AddToBasket" asp-route-id="@product.Id" asp-route-returnUrl="@Context.Request.Path.Value" class="single-btn">
                                                         <i class="fas fa-shopping-basket"></i>
                                                     </a>
                                                     <a href="wishlist.html" class="single-btn">

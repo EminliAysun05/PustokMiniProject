@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Pustokk.BLL.ViewModels.CategoryViewModels;
+using Pustokk.BLL.ViewModels.ProductImageViewModels;
 using Pustokk.BLL.ViewModels.TagViewModels;
 using Pustokk.DAL.DataContext.Entities;
 using System;
@@ -52,21 +53,27 @@ namespace Pustokk.BLL.ViewModels.ProductViewModels
         public List<CategoryViewModel> Categories { get; set; } = new List<CategoryViewModel>();
         public List<TagViewModel> Tags { get; set; } = new List<TagViewModel>();
         public List<IFormFile>? NewImageFiles { get; set; }
+       // public List<ProductImageViewModel>? ProductImages { get; set; }
         //emin deyilem
         public List<string> ImageUrls { get; set; } = new List<string>();
         public bool RemoveOldImages { get; set; }
         public List<string>? ExistingImageUrls { get; set; }
         public decimal DisCountPrice { get; set; }
     }
-    //public class ProductDetailsViewModel : IViewModel
-    //{
-    //    public int Id { get; set; }
-    //    public required string Name { get; set; }
-    //    public decimal Price { get; set; }
-    //    public required string Description { get; set; }
-    //    public List<string> ImageUrls { get; set; } = new();
-    //    public required string CategoryName { get; set; }
-    //}
+    public class ProductDetailsViewModel : IViewModel
+    {
+        public int Id { get; set; }
+        public required string Name { get; set; }
+        public required string Description { get; set; }
+        public decimal Price { get; set; }
+        public decimal? DiscountPrice { get; set; }
+        public string? ProductCode { get; set; }
+        public string? Brand { get; set; }
+        public bool Availability { get; set; }
+        public int RewardPoints { get; set; }
+        public List<string> ImageUrls { get; set; } = new();
+        public required string CategoryName { get; set; }
+    }
 }
 
 

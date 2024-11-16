@@ -8,5 +8,6 @@ public class BasketItem : BaseEntity
     public Product? Product { get; set; }
     public string? UserId {  get; set; } //log in olan userlar ucun
     public int Quantity { get; set; }
+    public int Count { get; set; }
 
 }

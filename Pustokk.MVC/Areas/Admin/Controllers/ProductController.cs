@@ -123,6 +123,19 @@ public class ProductController : Controller
         await _productService.DeleteAsync(id);
         return RedirectToAction("Index");
     }
+    public async Task<IActionResult> Details(int id)
+    {
+        var productDetails = await _productService.GetProductDetailsAsync(id);
+        if(productDetails == null)
+        {
+            TempData["Error"] = "Product not found!";
+            return RedirectToAction("Index");
+
+        }
+
+        return View(productDetails);
+    }
+
 }
 
 
