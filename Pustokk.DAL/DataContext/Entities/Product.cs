@@ -17,5 +17,6 @@ public class Product : BaseEntity
     public   string? ProductCode { get; set; } 
     public  string? Brand { get; set; } 
     public bool Availability { get; set; } 
-    public int RewardPoints { get; set; } 
+    public int RewardPoints { get; set; }
+    public int SalesCount { get; set; }
 }

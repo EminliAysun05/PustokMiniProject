@@ -12,6 +12,7 @@ namespace Pustokk.BLL.ViewModel
 {
     public class HomeViewModel
     {
+        public List<ProductViewModel> BestSellerBooks { get; set; } = [];
         public List<ProductViewModel> SelectedProducts { get; set; } = [];
         public List<ProductViewModel>? Products { get; set; }
         public List<CategoryViewModel>? Categories { get; set; }

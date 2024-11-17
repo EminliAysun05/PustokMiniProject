@@ -22,6 +22,12 @@ namespace Pustokk.BLL.ViewModels.ProductViewModels
         public int CategoryId { get; set; }
         public string? CategoryName { get; set; }
         public List<string> TagNames { get; set; } = new();
+        public int SalesCount { get; set; }
+        public string? ProductCode { get; set; }
+        public string? Brand { get; set; }
+        public bool Availability { get; set; }
+        public int RewardPoints { get; set; }
+       
         //  public List<int>? TagIds { get; set; }
         // public string? TagName { get; set; }
 
@@ -45,6 +51,7 @@ namespace Pustokk.BLL.ViewModels.ProductViewModels
         public string? Brand { get; set; }
         public bool Availability { get; set; }
         public int RewardPoints { get; set; }
+        public int SalesCount { get; set; }
 
     }
 
@@ -65,6 +72,12 @@ namespace Pustokk.BLL.ViewModels.ProductViewModels
         public bool RemoveOldImages { get; set; }
         public List<string>? ExistingImageUrls { get; set; }
         public decimal DisCountPrice { get; set; }
+        public string? ProductCode { get; set; }
+        public string? Brand { get; set; }
+        public bool Availability { get; set; }
+        public int RewardPoints { get; set; }
+        public int SalesCount { get; set; }
+
     }
     public class ProductDetailsViewModel : IViewModel
     {

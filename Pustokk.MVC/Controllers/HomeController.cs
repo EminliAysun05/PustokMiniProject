@@ -3,7 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Pustokk.BLL.Services.Contracts;
 using Pustokk.BLL.UI.Services;
+using Pustokk.BLL.ViewModel;
 using Pustokk.BLL.ViewModels.BasketItemViewModels;
+using Pustokk.BLL.ViewModels.ProductViewModels;
 using Pustokk.DAL.DataContext;
 using Pustokk.DAL.DataContext.Entities;
 using Pustokk.MVC.Models;
@@ -33,7 +35,9 @@ namespace Pustokk.MVC.Controllers
         public async Task<IActionResult> Index(int? categoryId)
         {
             var viewModel = await _homeService.GetHomeViewModelAsync(categoryId);
+            viewModel.BestSellerBooks = await _productService.GetBestSellingProductsAsync();
             return View(viewModel);
+
         }
 
         //bax!!! islemedi deye try catch vermisen 
@@ -60,6 +64,22 @@ namespace Pustokk.MVC.Controllers
 
             if (product == null)
                 return NotFound();
+
+            var updateModel = new ProductUpdateViewModel
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                Price = product.Price,
+                DisCountPrice = product.DisCountPrice,
+                ProductCode = product.ProductCode,
+                Brand = product.Brand,
+                Availability = product.Availability,
+                RewardPoints = product.RewardPoints,
+                SalesCount = product.SalesCount + 1, 
+                CategoryId = product.CategoryId
+            };
+            await _productService.UpdateAsync(updateModel);
 
             //login olubsa database, olmayibsa cookies
             if (!User.Identity?.IsAuthenticated ?? true)

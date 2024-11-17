@@ -311,6 +311,25 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
 
         return relatedProducts;
     }
+
+    public async Task<List<ProductViewModel>> GetBestSellingProductsAsync()
+    {
+        var products = await _productRepository.Query()
+            .OrderByDescending(p => p.SalesCount)
+            .Take(8) 
+            .Select(p => new ProductViewModel
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Price = p.Price,
+                DisCountPrice = p.DisCountPrice,
+                ImageUrl = p.ProductImages.FirstOrDefault().ImageUrl ?? "/default.jpg",
+                CategoryName = p.Category.Name
+            })
+            .ToListAsync();
+
+        return products;
+    }
 }
 
 

@@ -1,5 +1,7 @@
 ﻿@using Pustokk.BLL.ViewModel
+
 @model HomeViewModel
+
 <section class="hero-area hero-slider-1">
     <div class="sb-slick-slider" data-slick-setting='{
                             "autoplay": true,
@@ -1399,10 +1401,15 @@ Deal of the day
         </div>
     </div>
 </section>
+<div class="best-seller-section">
+    @await Html.PartialAsync("_BestSellerBooksPartial", Model.BestSellerBooks)
+</div>
+
 <!--=================================
 Best Seller Product
+
 ===================================== -->
-<section class="section-margin bg-image section-padding-top section-padding"
+@* <section class="section-margin bg-image section-padding-top section-padding"
          data-bg="image/bg-images/best-seller-bg.jpg">
     <div class="container">
         <div class="section-title section-title--bordered mb-0">
@@ -1480,7 +1487,7 @@ Best Seller Product
             </div>
         </div>
     </div>
-</section>
+</section> *@
 
 
 
