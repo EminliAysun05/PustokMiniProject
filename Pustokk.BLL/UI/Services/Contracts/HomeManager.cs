@@ -77,7 +77,7 @@ namespace Pustokk.BLL.UI.Services.Contracts
                 Sliders = sliders,
                 //Settings = settings,
                 Services = services,
-                SelectedProducts = products,
+                SelectedProducts = selectedProducts,
 
             };
         }

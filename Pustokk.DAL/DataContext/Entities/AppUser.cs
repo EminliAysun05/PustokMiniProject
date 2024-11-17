@@ -5,7 +5,7 @@ namespace Pustokk.DAL.DataContext.Entities;
 public class AppUser : IdentityUser
 {
     public ICollection<BasketItem>? BasketItems { get; set; }
-     public bool IsSubscribed { get; set; }
+    public bool IsSubscribed { get; set; }
     public bool IsActive { get; set; }
 
     public string? FullName { get; set; }

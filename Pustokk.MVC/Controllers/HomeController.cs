@@ -97,11 +97,11 @@ namespace Pustokk.MVC.Controllers
             {
                 //login olunmus userin idsi getrir, token - claim- identifername-id
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                var existItem = await _appDbContext.BasketItems.FirstOrDefaultAsync(x => x.ProductId == product.Id && x.UserId == userId);
+                var existItem = await _appDbContext.BasketItems.FirstOrDefaultAsync(x => x.ProductId == product.Id && x.AppUserId == userId);
 
                 if (existItem is not null)
                 {
-                    existItem.Count++;
+                    existItem.Quantity++;
                     _appDbContext.Update(existItem);
                     await _appDbContext.SaveChangesAsync();
 
@@ -116,9 +116,9 @@ namespace Pustokk.MVC.Controllers
                 //nulldisa yenisini yardacaq
                 BasketItem basketItem = new()
                 {
-                    UserId = userId,
+                    AppUserId = userId,
                     ProductId = product.Id,
-                    Count = 1
+                    Quantity = 1
                 };
 
                 await _appDbContext.BasketItems.AddAsync(basketItem);
@@ -146,14 +146,14 @@ namespace Pustokk.MVC.Controllers
                 if (userId is null)
                     return BadRequest();
                 //menim appuseridm olanlari getir null deyilse
-                var basketItems2 = await _appDbContext.BasketItems.Include(x => x.Product).ThenInclude(x => x.ProductImages).Where(x => x.UserId == userId).ToListAsync();
+                var basketItems2 = await _appDbContext.BasketItems.Include(x => x.Product).ThenInclude(x => x.ProductImages).Where(x => x.AppUserId == userId).ToListAsync();
 
                 foreach (var basketItem in basketItems2)
                 {
                     GetBasketViewModel vm = new()
                     {
                         Id = basketItem.Id,
-                        Count = basketItem.Count,
+                        Count = basketItem.Quantity,
                         Price = basketItem.Product.Price,
                         ImagePath = basketItem.Product.ProductImages?.FirstOrDefault()?.ImageUrl ?? "",
                         Name = basketItem.Product.Name,
@@ -198,5 +198,60 @@ namespace Pustokk.MVC.Controllers
             return View(basket);
         }
 
-    }
+
+		
+		public async Task<IActionResult> DecrementBasketItem(int id)
+		{
+			if (!User.Identity?.IsAuthenticated ?? true)
+			{
+				// Cookie-based logic for non-authenticated users
+				var json = Request.Cookies[BASKET_KEY];
+				if (string.IsNullOrWhiteSpace(json))
+					return BadRequest("Basket is empty");
+
+				var basketItems = JsonConvert.DeserializeObject<List<BasketItemViewModel>>(json) ?? new();
+
+				var item = basketItems.FirstOrDefault(x => x.ProductId == id);
+				if (item != null)
+				{
+					if (item.Count > 1)
+						item.Count--;
+					else
+						basketItems.Remove(item);
+
+					// Update cookie
+					var newJson = JsonConvert.SerializeObject(basketItems);
+					Response.Cookies.Append(BASKET_KEY, newJson);
+					return Ok();
+				}
+			}
+			else
+			{
+				// Database logic for authenticated users
+				var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+				if (userId == null)
+					return BadRequest("User not found");
+
+				var basketItem = await _appDbContext.BasketItems
+					.FirstOrDefaultAsync(x => x.ProductId == id && x.AppUserId == userId);
+
+				if (basketItem != null)
+				{
+					if (basketItem.Quantity > 1)
+					{
+						basketItem.Quantity--;
+						_appDbContext.BasketItems.Update(basketItem);
+					}
+					else
+					{
+						_appDbContext.BasketItems.Remove(basketItem);
+					}
+					await _appDbContext.SaveChangesAsync();
+					return Ok();
+				}
+			}
+
+			return NotFound("Product not found in the basket");
+		}
+	}
 }

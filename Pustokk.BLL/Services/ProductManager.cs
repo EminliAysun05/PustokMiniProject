@@ -56,11 +56,11 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
             product.ProductImages.Add(productImage);
 
         }
-            product.ProductTags = [];
+        product.ProductTags = [];
 
         foreach (var tagId in createViewModel.TagIds)
         {
-            
+
             //isExistTag
 
             ProductTag productTag = new()
@@ -219,7 +219,7 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
                               .Include(p => p.ProductImages)
                               .ToListAsync();
 
-         var dtos= _mapper.Map<List<ProductViewModel>>(productCategory);
+        var dtos = _mapper.Map<List<ProductViewModel>>(productCategory);
 
         return dtos;
     }
@@ -227,16 +227,32 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
     public async Task<ProductDetailsViewModel> GetProductDetailsAsync(int productId)
     {
         var product = await _productRepository.GetAsync(
-    predicate: x => x.Id == productId,
-    include: query => query
-        .Include(p => p.Category)
-        .Include(p => p.ProductImages)
-);
+               predicate: x => x.Id == productId,
+               include: query => query
+                   .Include(p => p.Category)
+                   .Include(p => p.ProductImages)
+                   .Include(p => p.ProductTags)
+           );
 
         if (product == null)
             throw new Exception("Product not found");
 
-       // var relatedProducts = await GetRelatedProductsAsync(product.CategoryId, productId);
+        var relatedProducts = await _productRepository.Query()
+       .Where(p => p.Id != productId &&
+                   p.ProductTags.Any(pt => product.ProductTags.Select(t => t.TagId).Contains(pt.TagId)))
+       .Take(4) // Maksimum 4 məhsul
+       .Select(p => new ProductViewModel
+       {
+           Id = p.Id,
+           Name = p.Name,
+           Price = p.Price,
+           DisCountPrice = p.DisCountPrice,
+           ImageUrl = p.ProductImages.FirstOrDefault() != null ? p.ProductImages.FirstOrDefault().ImageUrl : "/default.jpg",
+           CategoryName = p.Category.Name
+       })
+       .ToListAsync();
+
+        // var relatedProducts = await GetRelatedProductsAsync(product.CategoryId, productId);
 
         return new ProductDetailsViewModel
         {
@@ -244,15 +260,56 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
             Name = product.Name,
             Description = product.Description,
             Price = product.Price,
-            DiscountPrice = product.DisCountPrice,
+            DisCountPrice = product.DisCountPrice,
             ProductCode = product.ProductCode,
             Brand = product.Brand,
             Availability = product.Availability,
             RewardPoints = product.RewardPoints,
             CategoryName = product.Category.Name,
             ImageUrls = product.ProductImages.Select(pi => pi.ImageUrl).ToList(),
-           // RelatedProducts = relatedProducts
+             RelatedProducts = relatedProducts
         };
+    }
+
+    public async Task<List<ProductViewModel>> GetRelatedProductAsync(int productId)
+    {
+        var product = await _productRepository.GetAsync(productId);
+        if (product == null)
+        {
+            throw new Exception("Product not found.");
+        }
+
+        var relatedProductsQuery = await _productRepository
+    .Query()
+    .Include(p => p.ProductImages)
+    .Include(p => p.Category)
+    .Where(p => p.Id != productId &&
+                p.ProductTags.Any(pt => product.ProductTags.Select(t => t.TagId).Contains(pt.TagId)))
+    .Take(4)
+    .Select(p => new
+    {
+        p.Id,
+        p.Name,
+        p.Price,
+        p.DisCountPrice,
+        CategoryName = p.Category.Name,
+        ProductImages = p.ProductImages
+    })
+    .ToListAsync();
+
+        // Şəkil URL-lərini burda idarə edin
+        var relatedProducts = relatedProductsQuery.Select(p => new ProductViewModel
+        {
+            Id = p.Id,
+            Name = p.Name,
+            Price = p.Price,
+            DisCountPrice = p.DisCountPrice,
+            ImageUrl = p.ProductImages.FirstOrDefault()?.ImageUrl ?? "",
+            CategoryName = p.CategoryName
+        }).ToList();
+
+
+        return relatedProducts;
     }
 }
 

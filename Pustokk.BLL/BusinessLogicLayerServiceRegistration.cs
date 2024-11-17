@@ -26,8 +26,9 @@ namespace Pustokk.BLL
             services.AddScoped<IAccountService, AccountManager>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IAdminService, AdminService>();
+			//services.AddScoped<IBasketService, BasketManager>();
 
-            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+			services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
             return services;
         }

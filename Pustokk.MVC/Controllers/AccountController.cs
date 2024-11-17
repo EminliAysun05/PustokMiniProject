@@ -23,7 +23,7 @@ namespace Pustokk.MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel vm)
         {
-            var result = await _service.RegisterAsync(vm, ModelState);
+            var result = await _service.RegisterAsync(vm, ModelState); //register
 
             if (result == false)
                 return View(vm);

@@ -44,9 +44,9 @@
                                             </td>
                                             <td class="pro-quantity">
                                                 <div class="input-group quantity-input-group">
-                                                    <button class="btn btn-outline-secondary decrement-btn" type="button" data-id="@basketItem.ProductId">-</button>
+                                                    <a asp-action="DecrementBasketItem" asp-controller="Home" asp-route-id="@basketItem.ProductId" asp-route-returnUrl="@Context.Request.Path.Value" class="btn btn-outline-secondary decrement-btn" type="button" data-id="@basketItem.ProductId">-</a>
                                                     <input type="number" class="form-control text-center quantity-input" value="@basketItem.Count" min="1">
-                                                    <button class="btn btn-outline-secondary increment-btn" type="button" data-id="@basketItem.ProductId">+</button>
+                                                    <a asp-action="AddToBasket" asp-controller="Home" asp-route-id="@basketItem.ProductId" asp-route-returnUrl="@Context.Request.Path.Value"  class="btn btn-outline-secondary increment-btn" type="button" data-id="@basketItem.ProductId">+</a>
                                                 </div>
                                             </td>
                                             <td class="pro-subtotal">
@@ -66,21 +66,26 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Increment button
-        document.querySelectorAll('.increment-btn').forEach(button => {
-            button.addEventListener('click', function (e) {
+
+                const inputs = document.querySelectorAll('.quantity-input');
+
+        // Increment ucun
+        document.querySelectorAll('.increment-btn').forEach((button,i) => {
+            button.addEventListener('click',async (e)=> {
                 e.preventDefault();
-                const input = this.closest('.quantity-input-group').querySelector('.quantity-input');
+               await fetch(button.href)
+                let input=inputs[i]
                 let currentValue = parseInt(input.value) || 1;
                 input.value = currentValue + 1;
             });
         });
 
-        // Decrement button
-        document.querySelectorAll('.decrement-btn').forEach(button => {
-            button.addEventListener('click', function (e) {
+        // Decrement ucun
+        document.querySelectorAll('.decrement-btn').forEach(button, i) => {
+            button.addEventListener('click', async (e)=> {
                 e.preventDefault();
-                const input = this.closest('.quantity-input-group').querySelector('.quantity-input');
+                await fetch(button.href)
+                let input = inputs[i];
                 let currentValue = parseInt(input.value) || 1;
                 if (currentValue > 1) {
                     input.value = currentValue - 1;
