@@ -74,6 +74,7 @@ public class ProductController : Controller
         }
     }
 
+   
     public async Task<IActionResult> Update(int id)
     {
         var product = await _productService.GetAsync(id);

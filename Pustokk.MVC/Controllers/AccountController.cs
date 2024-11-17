@@ -1,18 +1,45 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Pustokk.BLL.Services.Contracts;
 using Pustokk.BLL.ViewModels.AppUserViewModels;
+using Pustokk.DAL.DataContext.Entities;
 
 namespace Pustokk.MVC.Controllers
 {
     public class AccountController : Controller
     {
         private readonly IAccountService _service;
+        private readonly SignInManager<AppUser> _signInManager;
+        private readonly IAccountService _accountService;
+        private readonly UserManager<AppUser> _userManager;
 
 
-        public AccountController(IAccountService service)
+
+        public AccountController(IAccountService service, IAccountService accountService, SignInManager<AppUser> signInManager, UserManager<AppUser> userManager)
         {
             _service = service;
+            _accountService = accountService;
+            _signInManager = signInManager;
+            _userManager = userManager;
         }
+
+        //public IActionResult Register()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Register(RegisterViewModel vm)
+        //{
+        //    var result = await _service.RegisterAsync(vm, ModelState); //register
+
+        //    if (result == false)
+        //        return View(vm);
+
+        //    TempData["Message"] = "Verification link sent to your email.";
+        //    return RedirectToAction("Login");
+        //}
 
         public IActionResult Register()
         {
@@ -23,12 +50,18 @@ namespace Pustokk.MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel vm)
         {
-            var result = await _service.RegisterAsync(vm, ModelState); //register
+            if (!ModelState.IsValid)
+            {
+                return View(vm);
+            }
+
+            var result = await _service.RegisterAsync(vm, ModelState);
 
             if (result == false)
-                return View(vm);
+                return View(vm);//bura dusur debugda
 
-            TempData["Message"] = "Verification link sent to your email.";
+            TempData["SuccessMessage"] = "Registration successful! Please log in.";
+
             return RedirectToAction("Login");
         }
 
@@ -42,25 +75,33 @@ namespace Pustokk.MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel vm)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(vm);
+            }
+
             var result = await _service.LoginAsync(vm, ModelState);
 
-            if (result == false) return View(vm);
+            if (result == false)
+            {
+                return View(vm);
+            }
 
             return RedirectToAction("Index", "Home");
         }
 
 
-        public async Task<IActionResult> LogOut()
-        {
-            var result = await _service.SignOutAsync();
+        //public async Task<IActionResult> LogOut()
+        //{
+        //    var result = await _service.SignOutAsync();
 
 
-            if (result is false)
-                return BadRequest();
+        //    if (result is false)
+        //        return BadRequest();
 
-            return RedirectToAction("Index", "Home");
+        //    return RedirectToAction("Index", "Home");
 
-        }
+        //}
 
         //public IActionResult ResetPasswordRequest()
         //{
@@ -105,18 +146,41 @@ namespace Pustokk.MVC.Controllers
         //    return RedirectToAction("Login");
         //}
 
-        public async Task<IActionResult> VerifyEmail(string token, string email)
-        {
-            var result = await _service.VerifyEmailAsync(email, token);
+        //public async Task<IActionResult> VerifyEmail(string token, string email)
+        //{
+        //    //return RedirectToAction("Login");
+        //    if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(token))
+        //    {
+        //        return BadRequest("Invalid email confirmation request.");
+        //    }
 
-            if (!result)
-            {
-                TempData["Error"] = "Email verification failed.";
-                return RedirectToAction("Login");
-            }
+        //    var user = await _userManager.FindByEmailAsync(email);
+        //    if (user == null)
+        //    {
+        //        return NotFound("User not found.");
+        //    }
 
-            TempData["Message"] = "Email verified successfully.";
-            return RedirectToAction("Login");
-        }
+        //    var result = await _userManager.ConfirmEmailAsync(user, token);
+
+        //    if (!result.Succeeded)
+        //    {
+        //        return BadRequest("Email confirmation failed.");
+        //    }
+
+        //    await _signInManager.SignInAsync(user, isPersistent: false);
+
+        //    TempData["SuccessMessage"] = "Your email has been successfully verified!";
+        //    return RedirectToAction("Index", "Home");
+        //}
     }
 }
+
+//var result = await _service.VerifyEmailAsync(email, token);
+
+//if (!result)
+//{
+//    TempData["Error"] = "Email verification failed.";
+//    return RedirectToAction("Login");
+//}
+
+//TempData["Message"] = "Email verified successfully.";

@@ -31,6 +31,51 @@ public class AccountManager : IAccountService
         _urlHelper = urlHelperFactory.GetUrlHelper(actionContextAccessor.ActionContext);
     }
 
+    //    public async Task<bool> RegisterAsync(RegisterViewModel vm, ModelStateDictionary modelState)
+    //    {
+    //        if (!modelState.IsValid)
+    //            return false;
+
+    //        var user = new AppUser
+    //        {
+    //            FullName = vm.FullName,
+    //            UserName = vm.Email,
+    //            Email = vm.Email
+    //        };
+
+    //        var result = await _userManager.CreateAsync(user, vm.Password);
+
+    //        if (!result.Succeeded)
+    //        {
+    //            foreach (var error in result.Errors)
+    //            {
+    //                modelState.AddModelError("", error.Description);
+    //            }
+    //            return false;
+    //        }
+
+    //        await _signInManager.SignInAsync(user, isPersistent: false);
+    //        return true;
+    //    }
+
+    //    public async Task<bool> LoginAsync(LoginViewModel vm, ModelStateDictionary modelState)
+    //    {
+    //        if (!modelState.IsValid)
+    //            return false;
+
+    //        var result = await _signInManager.PasswordSignInAsync(vm.Email, vm.Password, isPersistent: true, lockoutOnFailure: false);
+
+    //        if (!result.Succeeded)
+    //        {
+    //            modelState.AddModelError("", "Invalid login attempt.");
+    //            return false;
+    //        }
+
+    //        return true;
+    //    }
+    //}
+    //}
+
     public async Task<bool> LoginAsync(LoginViewModel vm, ModelStateDictionary modelState)
     {
         if (_httpContextAccessor.HttpContext.User.Identity?.IsAuthenticated ?? true)
@@ -51,11 +96,11 @@ public class AccountManager : IAccountService
             return false;
         }
 
-        if (!await _userManager.IsEmailConfirmedAsync(user))
-        {
-            modelState.AddModelError("", "Email is not confirmed");
-            return false;
-        }
+        //if (!await _userManager.IsEmailConfirmedAsync(user))
+        //{
+        //    modelState.AddModelError("", "Email is not confirmed");
+        //    return false;
+        //}
 
         var result = await _signInManager.PasswordSignInAsync(user, vm.Password, vm.SaveMe, true);
 
@@ -81,58 +126,81 @@ public class AccountManager : IAccountService
         var user = _mapper.Map<AppUser>(vm);
         var result = await _userManager.CreateAsync(user, vm.Password);
 
-        if (!result.Succeeded)
-        {
-            modelState.AddModelError("", string.Join(", ", result.Errors.Select(x => x.Description)));
-            return false;
-        }
-        var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+        //if (!result.Succeeded)
+        //{
+        //    modelState.AddModelError("", string.Join(", ", result.Errors.Select(x => x.Description)));
+        //    return false;
+        //}
+        //var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
 
 
-        UrlActionContext context = new()
-        {
-            Action = "VerifyEmail",
-            Controller = "Account",
-            Values = new { token = token, email = user.Email },
-            Protocol = _httpContextAccessor.HttpContext.Request.Scheme
-        };
+        //UrlActionContext context = new()
+        //{
+        //    Action = "VerifyEmail",
+        //    Controller = "Account",
+        //    Values = new { token = token, email = user.Email },
+        //    Protocol = _httpContextAccessor.HttpContext.Request.Scheme
+        //};
 
-        var link = _urlHelper.Action(context);
+        //var link = _urlHelper.Action(context);
 
-        //bax user.Email!
-        _emailService.SendEmail(user.Email!, "Verify your email", $"Click here to verify your email: {link}");//anladim niye tesekkurlerrr  gozle hele yoxlayaq
-
+        ////bax user.Email!
+        //_emailService.SendEmail(user.Email!, "Verify your email", $"Click here to verify your email: {link}");//anladim niye tesekkurlerrr  gozle hele yoxlayaq
+        await _signInManager.SignInAsync(user, isPersistent: false);
         return true;
 
     }
 
-    public async Task<bool> SignOutAsync()
-    {
-        if (!_httpContextAccessor.HttpContext.User.Identity?.IsAuthenticated ?? false)
-            return false;
+    
 
-        await _signInManager.SignOutAsync();
-        return true;
 
-    }
 
-    public async Task<bool> VerifyEmailAsync(string email, string token)
-    {
-        var user = await _userManager.FindByEmailAsync(email);
+    //public async Task<bool> RegisterAsync(RegisterViewModel vm, ModelStateDictionary modelState)
+    //{
+    //    if (_httpContextAccessor.HttpContext.User.Identity?.IsAuthenticated ?? true)
+    //        throw new InvalidInputException("User already signed");
 
-        if (user == null)
-            throw new InvalidInputException("User not found");
 
-        var result = await _userManager.ConfirmEmailAsync(user, token);
+    //    if (!modelState.IsValid)
+    //        return false;
+    //    var user = _mapper.Map<AppUser>(vm);
+    //    var result = await _userManager.CreateAsync(user, vm.Password);
+    //    if (!result.Succeeded)
+    //    {
+    //        modelState.AddModelError("", string.Join(", ", result.Errors.Select(x => x.Description)));
+    //        return false;
+    //    }
+    //    return true;
 
-        if (!result.Succeeded)
-            throw new InvalidInputException("Invalid email verification ");
+    //}
 
-        await _signInManager.SignInAsync(user, false);
+    //public async Task<bool> SignOutAsync()
+    //{
+    //    if (!_httpContextAccessor.HttpContext.User.Identity?.IsAuthenticated ?? false)
+    //        return false;
 
-        return true;
-    }
+    //    await _signInManager.SignOutAsync();
+    //    return true;
+
+    //}
+
+    //public async Task<bool> VerifyEmailAsync(string email, string token)
+    //{
+    //    var user = await _userManager.FindByEmailAsync(email);
+
+    //    if (user == null)
+    //        throw new InvalidInputException("User not found");
+
+    //    var result = await _userManager.ConfirmEmailAsync(user, token);
+
+    //    if (!result.Succeeded)
+    //        throw new InvalidInputException("Invalid email verification ");
+
+    //    await _signInManager.SignInAsync(user, false);
+
+    //    return true;
+    //}
     //public async Task<bool> SendResetPasswordLinkAsync(string email)
     //{
     //    var user = await _userManager.FindByEmailAsync(email);

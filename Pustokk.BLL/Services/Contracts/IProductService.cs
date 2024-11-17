@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
 using Pustokk.BLL.ViewModels.CategoryViewModels;
+using Pustokk.BLL.ViewModels.PaginateViewModels;
 using Pustokk.BLL.ViewModels.ProductViewModels;
 using Pustokk.BLL.ViewModels.TagViewModels;
 using Pustokk.DAL.DataContext.Entities;
@@ -10,6 +11,7 @@ namespace Pustokk.BLL.Services.Contracts;
 public interface IProductService 
 {
     // Task<ProductViewModel> GetByCategoryIdAsync(int categoryId);
+    Task<ProductPaginateViewModel> GetPaginatedProductAsync(int pageIndex, int pageSize, string sortBy);
     Task<List<ProductViewModel>> GetBestSellingProductsAsync();
     Task<List<ProductViewModel>> GetRelatedProductAsync(int productId);
     Task<ProductDetailsViewModel> GetProductDetailsAsync(int productId);

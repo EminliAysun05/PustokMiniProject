@@ -8,7 +8,7 @@ public class AppUser : IdentityUser
     public bool IsSubscribed { get; set; }
     public bool IsActive { get; set; }
 
-    public string? FullName { get; set; }
+    public required string FullName { get; set; }
 
     //ctorla bagli object initilaze edir
     public AppUser()

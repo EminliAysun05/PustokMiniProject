@@ -1,0 +1,178 @@
+﻿@using Pustokk.BLL.ViewModels.PaginateViewModels
+@model ProductPaginateViewModel
+
+<main class="inner-page-sec-padding-bottom">
+    <div class="container">
+        <!-- Toolbar -->
+        <div class="shop-toolbar mb--30">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-md-2 col-sm-6">
+                    <!-- Product View Mode -->
+                    <div class="product-view-mode">
+                        <a href="#" class="sorting-btn active" data-target="grid"><i class="fas fa-th"></i></a>
+                        <a href="#" class="sorting-btn" data-target="grid-four">
+                            <span class="grid-four-icon">
+                                <i class="fas fa-grip-vertical"></i><i class="fas fa-grip-vertical"></i>
+                            </span>
+                        </a>
+                        <a href="#" class="sorting-btn" data-target="list"><i class="fas fa-list"></i></a>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-md-4 col-sm-6 mt--10 mt-sm--0">
+                    <span class="toolbar-status">
+                        Showing @((Model.Index * Model.Size) + 1) to @Math.Min(((Model.Index + 1) * Model.Size), Model.Count) of @Model.Count
+                    </span>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-6 mt--10 mt-md--0">
+                    <div class="sorting-selection">
+                        <span>Show:</span>
+                        <select class="form-control nice-select sort-select" onchange="location.href='?pageSize=' + this.value">
+                            @if (Model.Size == 9)
+                            {
+                                <option value="9" selected>9</option>
+                            }
+                            else
+                            {
+                                <option value="9">9</option>
+                            }
+
+                            @if (Model.Size == 12)
+                            {
+                                <option value="12" selected>12</option>
+                            }
+                            else
+                            {
+                                <option value="12">12</option>
+                            }
+
+                            @if (Model.Size == 24)
+                            {
+                                <option value="24" selected>24</option>
+                            }
+                            else
+                            {
+                                <option value="24">24</option>
+                            }
+                        </select>
+
+                        <select class="form-control nice-select sort-select mr-0" onchange="location.href='?sortBy=' + this.value">
+                            @if (Model.SortBy == null)
+                            {
+                                <option value="" selected>Default Sorting</option>
+                            }
+                            else
+                            {
+                                <option value="">Default Sorting</option>
+                            }
+
+                            @if (Model.SortBy == "name-asc")
+                            {
+                                <option value="name-asc" selected>Name: A to Z</option>
+                            }
+                            else
+                            {
+                                <option value="name-asc">Name: A to Z</option>
+                            }
+
+                            @if (Model.SortBy == "name-desc")
+                            {
+                                <option value="name-desc" selected>Name: Z to A</option>
+                            }
+                            else
+                            {
+                                <option value="name-desc">Name: Z to A</option>
+                            }
+
+                            @if (Model.SortBy == "price-asc")
+                            {
+                                <option value="price-asc" selected>Price: Low to High</option>
+                            }
+                            else
+                            {
+                                <option value="price-asc">Price: Low to High</option>
+                            }
+
+                            @if (Model.SortBy == "price-desc")
+                            {
+                                <option value="price-desc" selected>Price: High to Low</option>
+                            }
+                            else
+                            {
+                                <option value="price-desc">Price: High to Low</option>
+                            }
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="shop-product-wrap grid with-pagination row space-db--30 shop-border">
+            @foreach (var product in Model.Products)
+            {
+                <div class="col-lg-4 col-sm-6">
+                    <div class="product-card">
+                        <div class="product-grid-content">
+                            <div class="product-header">
+                                <a href="#"  class="author">@product.CategoryName</a>
+                                <h3>
+                                    <a asp-controller="home" asp-action="details" asp-route-id="@product.Id">@product.Name</a>
+                                </h3>
+                            </div>
+                            <div class="product-card--body">
+                                <div class="card-image">
+                                    <img src="@product.ImageUrl" alt="@product.Name" />
+                                </div>
+                                <div class="price-block">
+                                    <span class="price">@product.Price.ToString("C")</span>
+                                    @if (product.DisCountPrice > 0)
+                                    {
+                                        <del class="price-old">@product.DisCountPrice.ToString("C")</del>
+                                        <span class="price-discount">
+                                            @((100 - (product.DisCountPrice / product.Price) * 100).ToString("0"))%
+                                        </span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-block">
+            <ul class="pagination-btns flex-center">
+
+                @if (Model.HasPrevious)
+                {
+                    <li>
+                        <a href="@Url.Action("Grid", "Shop", new { page = Model.Index, pageSize = Model.Size, sortBy = Model.SortBy })" class="single-btn prev-btn">
+                            <i class="zmdi zmdi-chevron-left"></i>
+                        </a>
+                    </li>
+                }
+
+                @for (int i = 1; i <= Model.Pages; i++)
+                {
+                    <li class="@(i == Model.Index + 1 ? "active" : "")">
+                        <a href="@Url.Action("Grid", "Shop", new { page = i, pageSize = Model.Size, sortBy = Model.SortBy })" class="single-btn">@i</a>
+                    </li>
+                }
+
+                @if (Model.HasNext)
+                {
+                    <li>
+                        <a href="@Url.Action("Grid", "Shop", new { page = Model.Index + 2, pageSize = Model.Size, sortBy = Model.SortBy })" class="single-btn next-btn">
+                            <i class="zmdi zmdi-chevron-right"></i>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+
+
+
+    </div>
+</main>

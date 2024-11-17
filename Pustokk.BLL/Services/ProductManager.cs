@@ -6,10 +6,12 @@ using Microsoft.EntityFrameworkCore.Query;
 using Pustokk.BLL.Extentions;
 using Pustokk.BLL.Services.Contracts;
 using Pustokk.BLL.ViewModels.CategoryViewModels;
+using Pustokk.BLL.ViewModels.PaginateViewModels;
 using Pustokk.BLL.ViewModels.ProductViewModels;
 using Pustokk.BLL.ViewModels.TagViewModels;
 using Pustokk.DAL.DataContext;
 using Pustokk.DAL.DataContext.Entities;
+using Pustokk.DAL.Paginate;
 using Pustokk.DAL.Repositories;
 using Pustokk.DAL.Repositories.Contracts;
 using System.Linq.Expressions;
@@ -93,7 +95,7 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
             throw new Exception("Discount price mustn be egative or zero and cannot be higher than the original price.");
         }
 
-        var existingProduct = await _productRepository.GetAsync(x => x.Id == updateViewModel.Id, x => x.Include(x => x.ProductTags).Include(x => x.ProductImages)); //noldu men yazanda islmirdi aqmma nebilim valla cxo saol xosduu bbbb
+        var existingProduct = await _productRepository.GetAsync(x => x.Id == updateViewModel.Id, x => x.Include(x => x.ProductTags).Include(x => x.ProductImages));
 
         if (existingProduct is null)
             throw new Exception("Product not found");
@@ -267,7 +269,7 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
             RewardPoints = product.RewardPoints,
             CategoryName = product.Category.Name,
             ImageUrls = product.ProductImages.Select(pi => pi.ImageUrl).ToList(),
-             RelatedProducts = relatedProducts
+            RelatedProducts = relatedProducts
         };
     }
 
@@ -316,7 +318,7 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
     {
         var products = await _productRepository.Query()
             .OrderByDescending(p => p.SalesCount)
-            .Take(8) 
+            .Take(8)
             .Select(p => new ProductViewModel
             {
                 Id = p.Id,
@@ -330,7 +332,156 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
 
         return products;
     }
+
+    public async Task<ProductPaginateViewModel> GetPaginatedProductAsync(int pageIndex, int pageSize, string sortBy)
+    {
+        var query = _productRepository.Query();
+
+        query = sortBy switch
+        {
+            "name-asc" => query.OrderBy(p => p.Name),
+            "name-desc" => query.OrderByDescending(p => p.Name),
+            "price-asc" => query.OrderBy(p => p.Price),
+            "price-desc" => query.OrderByDescending(p => p.Price),
+            _ => query
+        };
+
+        var totalCount = await query.CountAsync();
+
+        var items = await query
+            .Include(p => p.ProductImages)
+            .Include(p => p.Category)
+            .Skip(pageIndex * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        var products = items.Select(p => new ProductViewModel
+        {
+            Id = p.Id,
+            Name = p.Name,
+            Price = p.Price,
+            DisCountPrice = p.DisCountPrice,
+            ImageUrl = p.ProductImages.FirstOrDefault()?.ImageUrl ?? "/images/default.jpg",
+            CategoryName = p.Category?.Name ?? "Unknown"
+        }).ToList();
+
+        return new ProductPaginateViewModel
+        {
+            Index = pageIndex,
+            Size = pageSize,
+            Count = totalCount,
+            Pages = (int)Math.Ceiling(totalCount / (double)pageSize),
+            HasPrevious = pageIndex > 0,
+            HasNext = pageIndex < (int)Math.Ceiling(totalCount / (double)pageSize) - 1,
+            Products = products
+        };
+    }
+
 }
+
+//    public async Task<ProductPaginateViewModel> GetPaginatedProductAsync(int pageIndex, int pageSize, string sortBy)
+//    {
+//        try
+//        {
+//            // Səhifələmə üçün dəyərləri yoxla
+//            if (pageIndex <= 0 || pageSize <= 0)
+//            {
+//                throw new ArgumentException("Page index and page size must be greater than zero.");
+//            }
+
+//            // Məhsulları sorğula
+//            var query = _productRepository.Query();
+
+//            // Sort əməliyyatını tətbiq et
+//            query = sortBy switch
+//            {
+//                "name-asc" => query.OrderBy(p => p.Name),
+//                "name-desc" => query.OrderByDescending(p => p.Name),
+//                "price-asc" => query.OrderBy(p => p.Price),
+//                "price-desc" => query.OrderByDescending(p => p.Price),
+//                _ => query
+//            };
+
+//            // Məhsul sayı
+//            var totalCount = await query.CountAsync();
+
+//            // Əgər heç bir nəticə yoxdursa
+//            if (totalCount == 0)
+//            {
+//                return new ProductPaginateViewModel
+//                {
+//                    Index = pageIndex,
+//                    Size = pageSize,
+//                    Count = totalCount,
+//                    Pages = 0,
+//                    Products = new List<ProductViewModel>(),
+//                    HasNext = false,
+//                    HasPrevious = false
+//                };
+//            }
+
+//            // Skip hesabını yoxla
+//            var skipCount = (pageIndex - 1) * pageSize;
+//            if (skipCount >= totalCount)
+//            {
+//                throw new ArgumentException("Page index is out of range.");
+//            }
+
+//            // Səhifələmə tətbiq et
+//            var items = await query
+//                .Include(p => p.ProductImages) // Şəkillər əlaqəsi
+//                .Include(p => p.Category) // Kateqoriya əlaqəsi
+//                .Skip(skipCount) // Başlanğıcı keç
+//                .Take(pageSize) // Səhifə ölçüsünü götür
+//                .ToListAsync();
+
+//            // Məhsulları ViewModel-ə map et
+//            var products = items.Select(p => new ProductViewModel
+//            {
+//                Id = p.Id,
+//                Name = p.Name,
+//                Price = p.Price,
+//                DisCountPrice = p.DisCountPrice,
+//                ImageUrl = p.ProductImages.FirstOrDefault()?.ImageUrl ?? "/images/default.jpg",
+//                CategoryName = p.Category?.Name ?? "Unknown"
+//            }).ToList();
+
+//            // ViewModel-i doldur
+//            return new ProductPaginateViewModel
+//            {
+//                Index = pageIndex,
+//                Size = pageSize,
+//                Count = totalCount,
+//                Pages = (int)Math.Ceiling(totalCount / (double)pageSize),
+//                HasPrevious = pageIndex > 1,
+//                HasNext = pageIndex < (int)Math.Ceiling(totalCount / (double)pageSize),
+//                Products = products,
+//                SortBy = sortBy,
+//                SortOptions = new Dictionary<string, string>
+//            {
+//                { "name-asc", "Name: A to Z" },
+//                { "name-desc", "Name: Z to A" },
+//                { "price-asc", "Price: Low to High" },
+//                { "price-desc", "Price: High to Low" }
+//            }
+//            };
+//        }
+//        catch (ArgumentException ex)
+//        {
+//            throw new ArgumentException($"Invalid pagination parameters: {ex.Message}");
+//        }
+//        catch (InvalidOperationException ex)
+//        {
+//            throw new InvalidOperationException($"Data processing error: {ex.Message}");
+//        }
+//        catch (Exception ex)
+//        {
+//            throw new Exception($"An unexpected error occurred: {ex.Message}");
+//        }
+//    }
+
+//}
+
 
 
 
