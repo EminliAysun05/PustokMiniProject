@@ -11,6 +11,7 @@ namespace Pustokk.BLL.Services.Contracts;
 public interface IProductService 
 {
     // Task<ProductViewModel> GetByCategoryIdAsync(int categoryId);
+    List<ProductViewModel> SearchProducts(string query);
     Task<ProductPaginateViewModel> GetPaginatedProductAsync(int pageIndex, int pageSize, string sortBy);
     Task<List<ProductViewModel>> GetBestSellingProductsAsync();
     Task<List<ProductViewModel>> GetRelatedProductAsync(int productId);

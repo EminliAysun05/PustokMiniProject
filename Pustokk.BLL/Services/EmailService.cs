@@ -1,68 +1,67 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using MailKit.Net.Smtp;
+using MailKit.Security;
+using Microsoft.Extensions.Configuration;
+using MimeKit;
 using Pustokk.BLL.Services.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mail;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+using Pustokk.BLL.ViewModels;
+
 
 namespace Pustokk.BLL.Services
 {
     public class EmailService : IEmailService
     {
         private readonly IConfiguration _configuration;
+        private readonly EmailOptionViewModel _configurationDto;
 
         public EmailService(IConfiguration configuration)
         {
             _configuration = configuration;
+            _configurationDto = _configuration.GetSection("EmailSettings").Get<EmailOptionViewModel>() ?? new();
+
         }
 
-        public void SendEmail(string toEmail, string subject, string emailBody)
+        public async Task SendEmailAsync(EmailSendViewModel dto)
         {
-            // Set up SMTP client
-            SmtpClient client = new SmtpClient(_configuration["EmailSettings:Smtp"], int.Parse(_configuration["EmailSettings:Port"]));
-            client.EnableSsl = true;
-            client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential(_configuration["EmailSettings:Host"], _configuration["EmailSettings:Password"]);
+            var email = new MimeMessage();
 
-            // Create email message
-            MailMessage mailMessage = new MailMessage();
-            mailMessage.From = new MailAddress(_configuration["EmailSettings:Host"]);
-            mailMessage.To.Add(toEmail);
-            mailMessage.Subject = subject;
-            mailMessage.IsBodyHtml = true;
+            email.Sender = MailboxAddress.Parse(_configurationDto.Mail);
+            email.To.Add(MailboxAddress.Parse(dto.ToEmail));
+
+            email.Subject = dto.Subject;
 
 
-            mailMessage.Body = emailBody.ToString();
 
-            // Send email
-            client.Send(mailMessage);
-        }
-        public async Task SendEmailAsync(string toEmail, string subject, string body)
-        {
-            var emailSettings = _configuration.GetSection("EmailSettings");
 
-            using (var client = new SmtpClient(emailSettings["SmtpServer"], int.Parse(emailSettings["Port"])))
+            var builder = new BodyBuilder();
+
+
+            if (dto.Attachments != null && dto.Attachments.Count > 0)
             {
-                client.Credentials = new NetworkCredential(emailSettings["SenderEmail"], emailSettings["SenderPassword"]);
-                client.EnableSsl = true;
-
-                var mailMessage = new MailMessage
+                foreach (var attachment in dto.Attachments)
                 {
-                    From = new MailAddress(emailSettings["SenderEmail"], emailSettings["SenderName"]),
-                    Subject = subject,
-                    Body = body,
-                    IsBodyHtml = true
-                };
-
-                mailMessage.To.Add(toEmail);
-
-                await client.SendMailAsync(mailMessage);
+                    if (attachment.Length > 0)
+                    {
+                        using (var ms = new MemoryStream())
+                        {
+                            await attachment.CopyToAsync(ms);
+                            builder.Attachments.Add(attachment.FileName, ms.ToArray(), ContentType.Parse(attachment.ContentType));
+                        }
+                    }
+                }
             }
-        }
 
+            builder.HtmlBody = dto.Body;
+            email.Body = builder.ToMessageBody();
+
+            using var smtp = new SmtpClient();
+
+            smtp.Connect(_configurationDto.Host, int.Parse(_configurationDto.Port), SecureSocketOptions.StartTls);
+            smtp.Authenticate(_configurationDto.Mail, _configurationDto.Password);
+
+            await smtp.SendAsync(email);
+            await smtp.DisconnectAsync(true);
+
+        }
 
     }
 }

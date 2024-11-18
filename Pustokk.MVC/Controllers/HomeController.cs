@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Pustokk.BLL.Services.Contracts;
@@ -23,7 +23,7 @@ namespace Pustokk.MVC.Controllers
 
         private const string BASKET_KEY = "OGANI_BASKET_KEY";
 
-        public HomeController(IHomeService homeService, IProductService productService,  AppDbContext appDbContext)
+        public HomeController(IHomeService homeService, IProductService productService, AppDbContext appDbContext)
         {
             _homeService = homeService;
             _productService = productService;
@@ -58,13 +58,108 @@ namespace Pustokk.MVC.Controllers
 
         }
 
+        //public async Task<IActionResult> AddToBasket(int id, string? returnUrl)
+        //{
+        //    var product = await _productService.GetAsync(id);
+
+        //    if (product == null)
+        //        return NotFound();
+
+        //    var updateModel = new ProductUpdateViewModel
+        //    {
+        //        Id = product.Id,
+        //        Name = product.Name,
+        //        Description = product.Description,
+        //        Price = product.Price,
+        //        DisCountPrice = product.DisCountPrice,
+        //        ProductCode = product.ProductCode,
+        //        Brand = product.Brand,
+        //        Availability = product.Availability,
+        //        RewardPoints = product.RewardPoints,
+        //        SalesCount = product.SalesCount + 1, 
+        //        CategoryId = product.CategoryId
+        //    };
+        //    await _productService.UpdateAsync(updateModel);
+
+        //    //login olubsa database, olmayibsa cookies
+        //    if (!User.Identity?.IsAuthenticated ?? true)
+        //    {
+        //        string? json = Request.Cookies[BASKET_KEY];
+
+        //        List<BasketItemViewModel> basket = new();
+        //        //json null deyilse ora bir list atacaq, eger json null gelmirse basketi jsona deseralize edirsen
+        //        if (!string.IsNullOrWhiteSpace(json))
+        //            basket = JsonConvert.DeserializeObject<List<BasketItemViewModel>>(json!) ?? new();
+        //        //json nulldisa
+        //        var existItem = basket.FirstOrDefault(x => x.ProductId == id);
+
+        //        if (existItem is { })
+        //            existItem.Count++;
+        //        else
+        //        {
+        //            BasketItemViewModel newItem = new()
+        //            {
+        //                ProductId = id,
+        //                Count = 1
+        //            };
+
+        //            basket.Add(newItem);
+        //        }
+
+        //        //mende hazir olan cookini jsona qaytarmaliyam
+
+        //        var newJson = JsonConvert.SerializeObject(basket);
+
+        //        //cookiye gonderdi
+        //        Response.Cookies.Append(BASKET_KEY, newJson);
+        //    }
+        //    else
+        //    {
+        //        //login olunmus userin idsi getrir, token - claim- identifername-id
+        //        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //        var existItem = await _appDbContext.BasketItems.FirstOrDefaultAsync(x => x.ProductId == product.Id && x.AppUserId == userId);
+
+        //        if (existItem is not null)
+        //        {
+        //            existItem.Quantity++;
+        //            _appDbContext.Update(existItem);
+        //            await _appDbContext.SaveChangesAsync();
+
+        //            if (returnUrl is not null)
+        //                return Redirect(returnUrl);
+        //            return RedirectToAction("Index");
+        //        }
+
+        //        if (userId is null)
+        //            return BadRequest();
+
+        //        //nulldisa yenisini yardacaq
+        //        BasketItem basketItem = new()
+        //        {
+        //            AppUserId = userId,
+        //            ProductId = product.Id,
+        //            Quantity = 1
+        //        };
+
+        //        await _appDbContext.BasketItems.AddAsync(basketItem);
+        //        await _appDbContext.SaveChangesAsync();
+
+        //    }
+        //    //dinamik oldu redirect meseleem
+        //    if (returnUrl is not null)
+        //        return Redirect(returnUrl);
+        //    return RedirectToAction("Index");
+
+        //}
         public async Task<IActionResult> AddToBasket(int id, string? returnUrl)
+
         {
             var product = await _productService.GetAsync(id);
 
             if (product == null)
                 return NotFound();
 
+            // Məhsulun yenilənməsi
             var updateModel = new ProductUpdateViewModel
             {
                 Id = product.Id,
@@ -76,80 +171,68 @@ namespace Pustokk.MVC.Controllers
                 Brand = product.Brand,
                 Availability = product.Availability,
                 RewardPoints = product.RewardPoints,
-                SalesCount = product.SalesCount + 1, 
+                SalesCount = product.SalesCount + 1,
                 CategoryId = product.CategoryId
             };
             await _productService.UpdateAsync(updateModel);
 
-            //login olubsa database, olmayibsa cookies
+            // Login olub-olmama yoxlaması
             if (!User.Identity?.IsAuthenticated ?? true)
             {
                 string? json = Request.Cookies[BASKET_KEY];
 
                 List<BasketItemViewModel> basket = new();
-                //json null deyilse ora bir list atacaq, eger json null gelmirse basketi jsona deseralize edirsen
                 if (!string.IsNullOrWhiteSpace(json))
-                    basket = JsonConvert.DeserializeObject<List<BasketItemViewModel>>(json!) ?? new();
-                //json nulldisa
+                {
+                    try
+                    {
+                        basket = JsonConvert.DeserializeObject<List<BasketItemViewModel>>(json) ?? new();
+                    }
+                    catch
+                    {
+                        basket = new List<BasketItemViewModel>();
+                    }
+                }
+
                 var existItem = basket.FirstOrDefault(x => x.ProductId == id);
 
-                if (existItem is { })
+                if (existItem is not null)
                     existItem.Count++;
                 else
                 {
-                    BasketItemViewModel newItem = new()
-                    {
-                        ProductId = id,
-                        Count = 1
-                    };
-
-                    basket.Add(newItem);
+                    basket.Add(new BasketItemViewModel { ProductId = id, Count = 1 });
                 }
 
-                //mende hazir olan cookini jsona qaytarmaliyam
-
-                var newJson = JsonConvert.SerializeObject(basket);
-
-                //cookiye gonderdi
-                Response.Cookies.Append(BASKET_KEY, newJson);
+                Response.Cookies.Append(BASKET_KEY, JsonConvert.SerializeObject(basket));
             }
             else
             {
-                //login olunmus userin idsi getrir, token - claim- identifername-id
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (userId is null)
+                    return BadRequest();
+
                 var existItem = await _appDbContext.BasketItems.FirstOrDefaultAsync(x => x.ProductId == product.Id && x.AppUserId == userId);
 
-                if (existItem is not null)
+                if (existItem != null)
                 {
                     existItem.Quantity++;
                     _appDbContext.Update(existItem);
                     await _appDbContext.SaveChangesAsync();
-
-                    if (returnUrl is not null)
-                        return Redirect(returnUrl);
-                    return RedirectToAction("Index");
                 }
-
-                if (userId is null)
-                    return BadRequest();
-
-                //nulldisa yenisini yardacaq
-                BasketItem basketItem = new()
+                else
                 {
-                    AppUserId = userId,
-                    ProductId = product.Id,
-                    Quantity = 1
-                };
-
-                await _appDbContext.BasketItems.AddAsync(basketItem);
-                await _appDbContext.SaveChangesAsync();
-
+                    var basketItem = new BasketItem
+                    {
+                        AppUserId = userId,
+                        ProductId = product.Id,
+                        Quantity = 1
+                    };
+                    await _appDbContext.BasketItems.AddAsync(basketItem);
+                    await _appDbContext.SaveChangesAsync();
+                }
             }
-            //dinamik oldu redirect meseleem
-            if (returnUrl is not null)
-                return Redirect(returnUrl);
-            return RedirectToAction("Index");
 
+            return !string.IsNullOrEmpty(returnUrl) ? Redirect(returnUrl) : RedirectToAction("Index");
         }
 
         public async Task<IActionResult> ShoppingCard()
@@ -219,59 +302,109 @@ namespace Pustokk.MVC.Controllers
         }
 
 
-		
-		public async Task<IActionResult> DecrementBasketItem(int id)
-		{
-			if (!User.Identity?.IsAuthenticated ?? true)
-			{
-				// Cookie-based logic for non-authenticated users
-				var json = Request.Cookies[BASKET_KEY];
-				if (string.IsNullOrWhiteSpace(json))
-					return BadRequest("Basket is empty");
+        [HttpPost]
+        public async Task<IActionResult> DecrementBasketItem(int id, string? returnUrl)
+        {
+            if (!User.Identity?.IsAuthenticated ?? true)
+            {
+                string? json = Request.Cookies[BASKET_KEY];
 
-				var basketItems = JsonConvert.DeserializeObject<List<BasketItemViewModel>>(json) ?? new();
+                if (string.IsNullOrWhiteSpace(json))
+                    return BadRequest();
 
-				var item = basketItems.FirstOrDefault(x => x.ProductId == id);
-				if (item != null)
-				{
-					if (item.Count > 1)
-						item.Count--;
-					else
-						basketItems.Remove(item);
+                var basket = JsonConvert.DeserializeObject<List<BasketItemViewModel>>(json) ?? new();
 
-					// Update cookie
-					var newJson = JsonConvert.SerializeObject(basketItems);
-					Response.Cookies.Append(BASKET_KEY, newJson);
-					return Ok();
-				}
-			}
-			else
-			{
-				// Database logic for authenticated users
-				var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-				if (userId == null)
-					return BadRequest("User not found");
+                var item = basket.FirstOrDefault(x => x.ProductId == id);
+                if (item == null)
+                    return BadRequest();
 
-				var basketItem = await _appDbContext.BasketItems
-					.FirstOrDefaultAsync(x => x.ProductId == id && x.AppUserId == userId);
+                if (item.Count > 1)
+                    item.Count--;
+                else
+                    basket.Remove(item);
 
-				if (basketItem != null)
-				{
-					if (basketItem.Quantity > 1)
-					{
-						basketItem.Quantity--;
-						_appDbContext.BasketItems.Update(basketItem);
-					}
-					else
-					{
-						_appDbContext.BasketItems.Remove(basketItem);
-					}
-					await _appDbContext.SaveChangesAsync();
-					return Ok();
-				}
-			}
+                Response.Cookies.Append(BASKET_KEY, JsonConvert.SerializeObject(basket));
+            }
+            else
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (userId == null)
+                    return BadRequest();
 
-			return NotFound("Product not found in the basket");
-		}
-	}
+                var basketItem = await _appDbContext.BasketItems.FirstOrDefaultAsync(x => x.ProductId == id && x.AppUserId == userId);
+
+                if (basketItem == null)
+                    return BadRequest();
+
+                if (basketItem.Quantity > 1)
+                {
+                    basketItem.Quantity--;
+                    _appDbContext.Update(basketItem);
+                }
+                else
+                {
+                    _appDbContext.BasketItems.Remove(basketItem);
+                }
+
+                await _appDbContext.SaveChangesAsync();
+            }
+
+            return !string.IsNullOrEmpty(returnUrl) ? Redirect(returnUrl) : RedirectToAction("ShoppingCard");
+        }
+
+        //    public async Task<IActionResult> DecrementBasketItem(int id)
+        //    {
+        //        if (!User.Identity?.IsAuthenticated ?? true)
+        //        {
+        //            // Cookie-based logic for non-authenticated users
+        //            var json = Request.Cookies[BASKET_KEY];
+        //            if (string.IsNullOrWhiteSpace(json))
+        //                return BadRequest("Basket is empty");
+
+        //            var basketItems = JsonConvert.DeserializeObject<List<BasketItemViewModel>>(json) ?? new();
+
+        //            var item = basketItems.FirstOrDefault(x => x.ProductId == id);
+        //            if (item != null)
+        //            {
+        //                if (item.Count > 1)
+        //                    item.Count--;
+        //                else
+        //                    basketItems.Remove(item);
+
+        //                // Update cookie
+        //                var newJson = JsonConvert.SerializeObject(basketItems);
+        //                Response.Cookies.Append(BASKET_KEY, newJson);
+        //                return Ok();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            // Database logic for authenticated users
+        //            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //            if (userId == null)
+        //                return BadRequest("User not found");
+
+        //            var basketItem = await _appDbContext.BasketItems
+        //                .FirstOrDefaultAsync(x => x.ProductId == id && x.AppUserId == userId);
+
+        //            if (basketItem != null)
+        //            {
+        //                if (basketItem.Quantity > 1)
+        //                {
+        //                    basketItem.Quantity--;
+        //                    _appDbContext.BasketItems.Update(basketItem);
+        //                }
+        //                else
+        //                {
+        //                    _appDbContext.BasketItems.Remove(basketItem);
+        //                }
+        //                await _appDbContext.SaveChangesAsync();
+        //                return Ok();
+        //            }
+        //        }
+
+        //        return NotFound("Product not found in the basket");
+        //    }
+        //}
+    }
 }

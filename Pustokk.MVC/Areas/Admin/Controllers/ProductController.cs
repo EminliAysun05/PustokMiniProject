@@ -137,6 +137,12 @@ public class ProductController : Controller
         return View(productDetails);
     }
 
+    public IActionResult Search(string query)
+    {
+        var results = _productService.SearchProducts(query);
+        return Json(results);
+    }
+
 }
 
 

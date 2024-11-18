@@ -1,10 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc.Infrastructure;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Pustok.BLL.Validators.CategoryViewModelValidators;
+using Pustok.BLL.Validators.ProductViewModelValidators;
 using Pustokk.BLL.Services;
 using Pustokk.BLL.Services.Contracts;
 using Pustokk.BLL.UI.Services;
 using Pustokk.BLL.UI.Services.Contracts;
+using Pustokk.DAL.DataContext;
 using System.Reflection;
 
 namespace Pustokk.BLL
@@ -26,9 +31,15 @@ namespace Pustokk.BLL
             services.AddScoped<IAccountService, AccountManager>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IAdminService, AdminService>();
-			//services.AddScoped<IBasketService, BasketManager>();
+            //services.AddScoped<IBasketService, BasketManager>();
 
-			services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+
+
+           services
+             .AddFluentValidationAutoValidation()
+             .AddFluentValidationClientsideAdapters()
+             .AddValidatorsFromAssemblyContaining<ProductCreateViewModelValidator>();
 
             return services;
         }

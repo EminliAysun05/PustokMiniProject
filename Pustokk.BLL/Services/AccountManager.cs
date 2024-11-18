@@ -114,6 +114,11 @@ public class AccountManager : IAccountService
 
     }
 
+    public async Task LogOutAsync()
+    {
+        await _signInManager.SignOutAsync();
+    }
+
     public async Task<bool> RegisterAsync(RegisterViewModel vm, ModelStateDictionary modelState)
     {
         if (_httpContextAccessor.HttpContext.User.Identity?.IsAuthenticated ?? true)
@@ -126,33 +131,37 @@ public class AccountManager : IAccountService
         var user = _mapper.Map<AppUser>(vm);
         var result = await _userManager.CreateAsync(user, vm.Password);
 
-        //if (!result.Succeeded)
-        //{
-        //    modelState.AddModelError("", string.Join(", ", result.Errors.Select(x => x.Description)));
-        //    return false;
-        //}
-        //var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+        //_emailService.SendEmail(vm.Email, "  ", "  ");
+
+        if (!result.Succeeded)
+        {
+            modelState.AddModelError("", string.Join(", ", result.Errors.Select(x => x.Description)));
+            return false;
+        }
+        var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
 
 
-        //UrlActionContext context = new()
-        //{
-        //    Action = "VerifyEmail",
-        //    Controller = "Account",
-        //    Values = new { token = token, email = user.Email },
-        //    Protocol = _httpContextAccessor.HttpContext.Request.Scheme
-        //};
+        UrlActionContext context = new()
+        {
+            Action = "VerifyEmail",
+            Controller = "Account",
+            Values = new { token = token, email = user.Email },
+            Protocol = _httpContextAccessor.HttpContext.Request.Scheme
+        };
 
-        //var link = _urlHelper.Action(context);
+        var link = _urlHelper.Action(context);
 
-        ////bax user.Email!
-        //_emailService.SendEmail(user.Email!, "Verify your email", $"Click here to verify your email: {link}");//anladim niye tesekkurlerrr  gozle hele yoxlayaq
+        //user.Email!, "Verify your email","
+
+        //bax user.Email!
+        await _emailService.SendEmailAsync(new() { Body = $"Click here to verify your email: {link}", Subject = "Verify your email", ToEmail = user.Email });//anladim niye tesekkurlerrr  gozle hele yoxlayaq
         await _signInManager.SignInAsync(user, isPersistent: false);
         return true;
 
     }
 
-    
+
 
 
 
@@ -185,40 +194,41 @@ public class AccountManager : IAccountService
 
     //}
 
-    //public async Task<bool> VerifyEmailAsync(string email, string token)
-    //{
-    //    var user = await _userManager.FindByEmailAsync(email);
+    public async Task<bool> VerifyEmailAsync(string email, string token)
+    {
+        var user = await _userManager.FindByEmailAsync(email);
 
-    //    if (user == null)
-    //        throw new InvalidInputException("User not found");
+        if (user == null)
+            throw new InvalidInputException("User not found");
 
-    //    var result = await _userManager.ConfirmEmailAsync(user, token);
+        var result = await _userManager.ConfirmEmailAsync(user, token);
 
-    //    if (!result.Succeeded)
-    //        throw new InvalidInputException("Invalid email verification ");
+        if (!result.Succeeded)
+            throw new InvalidInputException("Invalid email verification ");
 
-    //    await _signInManager.SignInAsync(user, false);
+        await _signInManager.SignInAsync(user, false);
 
-    //    return true;
-    //}
-    //public async Task<bool> SendResetPasswordLinkAsync(string email)
-    //{
-    //    var user = await _userManager.FindByEmailAsync(email);
-
-    //    if (user == null)
-    //        throw new InvalidInputException("User not found");
-
-    //    if (!await _userManager.IsEmailConfirmedAsync(user))
-    //        throw new InvalidInputException("Email is not confirmed");
-
-    //    var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-
-    //    var resetLink = $"https://yourwebsite.com/Account/ResetPassword?token={token}&email={user.Email}";
-
-
-    //    await _emailService.SendAsync(user.Email, "Reset Password", $"Click here to reset your password: {resetLink}");
-
-    //    return true;
-
+        return true;
+    }
 }
+//public async Task<bool> SendResetPasswordLinkAsync(string email)
+//{
+//    var user = await _userManager.FindByEmailAsync(email);
+
+//    if (user == null)
+//        throw new InvalidInputException("User not found");
+
+//    if (!await _userManager.IsEmailConfirmedAsync(user))
+//        throw new InvalidInputException("Email is not confirmed");
+
+//    var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+//    var resetLink = $"https://yourwebsite.com/Account/ResetPassword?token={token}&email={user.Email}";
+
+
+//    await _emailService.SendAsync(user.Email, "Reset Password", $"Click here to reset your password: {resetLink}");
+
+//    return true;
+
+//}
 

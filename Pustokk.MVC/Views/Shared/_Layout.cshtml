@@ -20,9 +20,13 @@
 <body>
     <div class="site-wrapper" id="top">
         @await Component.InvokeAsync("Header")
-        </div>
-            @RenderBody()
-           @await Component.InvokeAsync("Footer");
+    </div>
+
+    <div class="main-content">
+        @RenderBody() <!-- Əsas səhifə məzmunu burada göstəriləcək -->
+    </div>
+
+    @await Component.InvokeAsync("Footer");
            
             <!-- Use Minified Plugins Version For Fast Page Load -->
             <script src="~/js/plugins.js"></script>

@@ -29,7 +29,7 @@
                                     {
                                         <tr>
                                             <td class="pro-remove">
-                                                <a href="#"><i class="far fa-trash-alt"></i></a>
+                                                <a asp-action="RemoveFromBasket" asp-route-id="@basketItem.ProductId"><i class="far fa-trash-alt"></i></a>
                                             </td>
                                             <td class="pro-thumbnail">
                                                 <a href="#">
@@ -44,9 +44,9 @@
                                             </td>
                                             <td class="pro-quantity">
                                                 <div class="input-group quantity-input-group">
-                                                    <a asp-action="DecrementBasketItem" asp-controller="Home" asp-route-id="@basketItem.ProductId" asp-route-returnUrl="@Context.Request.Path.Value" class="btn btn-outline-secondary decrement-btn" type="button" data-id="@basketItem.ProductId">-</a>
-                                                    <input type="number" class="form-control text-center quantity-input" value="@basketItem.Count" min="1">
-                                                    <a asp-action="AddToBasket" asp-controller="Home" asp-route-id="@basketItem.ProductId" asp-route-returnUrl="@Context.Request.Path.Value"  class="btn btn-outline-secondary increment-btn" type="button" data-id="@basketItem.ProductId">+</a>
+                                                    <a asp-action="DecrementBasketItem" asp-route-id="@basketItem.ProductId" asp-route-returnUrl="@Context.Request.Path.Value" class="btn btn-outline-secondary decrement-btn" type="button" data-id="@basketItem.ProductId">-</a>
+                                                    <input type="number" class="form-control text-center quantity-input" value="@basketItem.Count" min="1" readonly>
+                                                    <a asp-action="AddToBasket" asp-route-id="@basketItem.ProductId" asp-route-returnUrl="@Context.Request.Path.Value" class="btn btn-outline-secondary increment-btn" type="button" data-id="@basketItem.ProductId">+</a>
                                                 </div>
                                             </td>
                                             <td class="pro-subtotal">
@@ -67,28 +67,38 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
 
-                const inputs = document.querySelectorAll('.quantity-input');
+        const inputs = document.querySelectorAll('.quantity-input');
 
-        // Increment ucun
-        document.querySelectorAll('.increment-btn').forEach((button,i) => {
-            button.addEventListener('click',async (e)=> {
+        // Increment üçün
+        document.querySelectorAll('.increment-btn').forEach((button, i) => {
+            button.addEventListener('click', async (e) => {
                 e.preventDefault();
-               await fetch(button.href)
-                let input=inputs[i]
-                let currentValue = parseInt(input.value) || 1;
-                input.value = currentValue + 1;
+
+                const response = await fetch(button.href, { method: "POST" });
+                if (response.ok) {
+                    let input = inputs[i];
+                    let currentValue = parseInt(input.value) || 1;
+                    input.value = currentValue + 1;
+                } else {
+                    alert("Failed to increment quantity.");
+                }
             });
         });
 
-        // Decrement ucun
-        document.querySelectorAll('.decrement-btn').forEach(button, i) => {
-            button.addEventListener('click', async (e)=> {
+        // Decrement üçün
+        document.querySelectorAll('.decrement-btn').forEach((button, i) => {
+            button.addEventListener('click', async (e) => {
                 e.preventDefault();
-                await fetch(button.href)
-                let input = inputs[i];
-                let currentValue = parseInt(input.value) || 1;
-                if (currentValue > 1) {
-                    input.value = currentValue - 1;
+
+                const response = await fetch(button.href, { method: "POST" });
+                if (response.ok) {
+                    let input = inputs[i];
+                    let currentValue = parseInt(input.value) || 1;
+                    if (currentValue > 1) {
+                        input.value = currentValue - 1;
+                    }
+                } else {
+                    alert("Failed to decrement quantity.");
                 }
             });
         });
@@ -99,6 +109,8 @@
     .quantity-input-group {
         max-width: 120px;
         margin: 0 auto;
+        display: flex;
+        align-items: center;
     }
 
     .quantity-input {
@@ -112,6 +124,7 @@
         height: 35px;
         padding: 0;
         border: 1px solid #ddd;
+        text-align: center;
     }
 
     .pro-thumbnail img {

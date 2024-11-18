@@ -15,14 +15,14 @@ public class DataInitalizer
     private readonly AppUser _admin;
     private readonly string _adminPassword;
 
-    public DataInitalizer(AppDbContext appDbContext, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, AppUser admin, string adminPassword)
+    public DataInitalizer(AppDbContext appDbContext, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
     {
         _appDbContext = appDbContext;
         _userManager = userManager;
         _roleManager = roleManager;
         _configuration = configuration;
-        _admin = admin;
-        _adminPassword = adminPassword;
+        _admin = configuration.GetSection("AdminOptions").Get<AppUser>();
+        _adminPassword = configuration["AdminOptions:Password"];
     }
 
     public async Task SeedDataAsync()

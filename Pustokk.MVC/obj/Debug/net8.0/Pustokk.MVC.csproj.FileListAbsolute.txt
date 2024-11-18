@@ -819,3 +819,6 @@ C:\Users\namjoon\Source\Repos\PustokMiniProjectttt\Pustokk.MVC\obj\Debug\net8.0\
 C:\Users\namjoon\Source\Repos\PustokMiniProjectttt\Pustokk.MVC\obj\Debug\net8.0\Pustokk.MVC.pdb
 C:\Users\namjoon\Source\Repos\PustokMiniProjectttt\Pustokk.MVC\obj\Debug\net8.0\Pustokk.MVC.genruntimeconfig.cache
 C:\Users\namjoon\Source\Repos\PustokMiniProjectttt\Pustokk.MVC\obj\Debug\net8.0\ref\Pustokk.MVC.dll
+C:\Users\namjoon\source\repos\PustokMiniProjectttt\Pustokk.MVC\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\namjoon\source\repos\PustokMiniProjectttt\Pustokk.MVC\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\namjoon\source\repos\PustokMiniProjectttt\Pustokk.MVC\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

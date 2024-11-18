@@ -1,12 +1,12 @@
 using Pustokk.BLL;
-using Pustokk.BLL.Services;
 using Pustokk.DAL;
+using Pustokk.DAL.DataContext;
 
 namespace Pustokk.MVC
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async  Task Main (string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +16,13 @@ namespace Pustokk.MVC
             builder.Services.AddBllService(builder.Configuration);
 
             var app = builder.Build();
+          //  var app = builder.Build();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var initializer = scope.ServiceProvider.GetRequiredService<DataInitalizer>();
+                await initializer.SeedDataAsync();
+            }
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -42,7 +49,7 @@ namespace Pustokk.MVC
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            app.Run();
+           await  app.RunAsync();
         }
     }
 }

@@ -171,7 +171,7 @@
                                     </ul>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="contact.html">Contact</a>
+                                    <a asp-controller="contact" asp-action="index">Contact</a>
                                 </li>
                             </ul>
                         </div>
@@ -210,12 +210,99 @@
                     </div>
 
                     <!-- Search Bar -->
-                    <div class="col-lg-5">
-                        <div class="header-search-block">
-                            <input type="text" placeholder="Search entire store here" class="form-control">
-                            <button class="btn btn-primary">Search</button>
-                        </div>
-                    </div>
+                          <div class="header-search-block position-relative">
+    <!-- Axtarış Barı -->
+    <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search entire store here" 
+        class="form-control" 
+        autocomplete="off">
+    <button id="searchButton" class="btn btn-primary">Search</button>
+    
+    <!-- Dropdown Nəticələri -->
+    <ul id="searchResults" class="dropdown-menu w-100" style="display: none; position: absolute; z-index: 1000;">
+        <!-- Dinamik nəticələr burada göstəriləcək -->
+    </ul>
+</div>
+
+<style>
+/* CSS Dizaynı */
+.header-search-block {
+    position: relative;
+}
+
+#searchResults {
+    border: 1px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+#searchResults li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#searchResults li:hover {
+    background-color: #f0f0f0;
+}
+</style>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+
+    searchInput.addEventListener("input", async function () {
+        const query = searchInput.value.trim();
+
+        if (!query) {
+            searchResults.style.display = "none";
+            searchResults.innerHTML = "";
+            return;
+        }
+
+        try {
+            const response = await fetch(`/Products/Search?query=${query}`);
+            
+            if (!response.ok) {
+=
+                throw new Error("Failed to fetch results");
+            }
+
+            const results = await response.json();
+
+            if (results.length === 0) {
+                searchResults.innerHTML = "<li>No results found</li>";
+            } else {
+                searchResults.innerHTML = results
+                    .map(product => `<li onclick="window.location='/Products/Details/${product.id}'">${product.name}</li>`)
+                    .join("");
+            }
+
+            searchResults.style.display = "block";
+        } catch (error) {
+            console.error("Error fetching search results:", error);
+            searchResults.innerHTML = "<li>Unable to fetch results. Please try again later.</li>";
+            searchResults.style.display = "block";
+        }
+    });
+
+    // Dropdown-u gizlətmək üçün
+    document.addEventListener("click", function (event) {
+        if (!searchInput.contains(event.target) && !searchResults.contains(event.target)) {
+            searchResults.style.display = "none";
+        }
+    });
+});
+
+</script>
 
                     <!-- User and Cart Section -->
                     <div class="col-lg-4">
@@ -263,4 +350,6 @@
             </div>
         </div>
     </div>
+</div>
+</div>
 </div>

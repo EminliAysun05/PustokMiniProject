@@ -1,6 +1,8 @@
-﻿namespace Pustokk.BLL.Services.Contracts;
+﻿using Pustokk.BLL.ViewModels;
+
+namespace Pustokk.BLL.Services.Contracts;
 
 public interface IEmailService
 {
-    void SendEmail(string toEmail, string subject, string emailBody);
+    Task SendEmailAsync(EmailSendViewModel dto);
 }

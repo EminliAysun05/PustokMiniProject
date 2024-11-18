@@ -377,6 +377,21 @@ public class ProductManager : CrudManager<Product, ProductViewModel, ProductCrea
         };
     }
 
+    public List<ProductViewModel> SearchProducts(string query)
+    {
+        if (string.IsNullOrWhiteSpace(query))
+            return new List<ProductViewModel>();
+
+        return _context.Products
+            .Where(p => p.Name.Contains(query))
+            .Take(5)
+            .Select(p => new ProductViewModel
+            {
+                Id = p.Id,
+                Name = p.Name
+            })
+            .ToList();
+    }
 }
 
 //    public async Task<ProductPaginateViewModel> GetPaginatedProductAsync(int pageIndex, int pageSize, string sortBy)

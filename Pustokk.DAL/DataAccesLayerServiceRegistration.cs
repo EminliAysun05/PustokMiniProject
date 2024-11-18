@@ -16,6 +16,7 @@ public static class DataAccesLayerServiceRegistration
         services.AddDbContext<AppDbContext>(options =>
         {
             options.UseSqlServer(configuration.GetConnectionString("Default"));
+
         });
 
         services.AddIdentity<AppUser, IdentityRole>(options =>
@@ -42,6 +43,7 @@ public static class DataAccesLayerServiceRegistration
         services.AddScoped<ISliderRepository, SliderRepository>();
         services.AddScoped<ISubscribeRepository, SubscribeRepository>();
         services.AddScoped<IBasketItemRepository, BasketItemRepository>();
+        services.AddScoped<DataInitalizer>();
 
         return services;
     }
