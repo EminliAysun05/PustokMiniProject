@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Pustokk.MVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3332d767a3c8aec7863ba21e8cd914a935fcb2c1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2fc3028a0dd3f9171bee47acd7264efd67933aaa")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pustokk.MVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pustokk.MVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
