@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjectttt\\",
+  "WorkspaceRootPath": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjectttttt\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|c:\\users\\namjoon\\source\\repos\\pustokminiprojectttt\\pustokk.mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|c:\\users\\namjoon\\source\\repos\\pustokminiprojectttttt\\pustokk.mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|solutionrelative:pustokk.mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|c:\\users\\namjoon\\source\\repos\\pustokminiprojectttt\\pustokk.mvc\\views\\home\\shoppingcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|c:\\users\\namjoon\\source\\repos\\pustokminiprojectttttt\\pustokk.mvc\\views\\home\\shoppingcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6E096530-3BEC-4867-BCE6-2D3BDC604C19}|Pustokk.MVC\\Pustokk.MVC.csproj|solutionrelative:pustokk.mvc\\views\\home\\shoppingcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|c:\\users\\namjoon\\source\\repos\\pustokminiprojectttt\\pustokk.bll\\services\\productmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|c:\\users\\namjoon\\source\\repos\\pustokminiprojectttttt\\pustokk.bll\\services\\productmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A89D4B75-CC15-457D-A40A-6C80D08A69A6}|Pustokk.BLL\\Pustokk.BLL.csproj|solutionrelative:pustokk.bll\\services\\productmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -33,38 +33,40 @@
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "ShoppingCard.cshtml",
-              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjectttt\\Pustokk.MVC\\Views\\Home\\ShoppingCard.cshtml",
+              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjectttttt\\Pustokk.MVC\\Views\\Home\\ShoppingCard.cshtml",
               "RelativeDocumentMoniker": "Pustokk.MVC\\Views\\Home\\ShoppingCard.cshtml",
-              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjectttt\\Pustokk.MVC\\Views\\Home\\ShoppingCard.cshtml",
+              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjectttttt\\Pustokk.MVC\\Views\\Home\\ShoppingCard.cshtml",
               "RelativeToolTip": "Pustokk.MVC\\Views\\Home\\ShoppingCard.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-18T14:45:32.448Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T14:45:32.448Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "ProductManager.cs",
-              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjectttt\\Pustokk.BLL\\Services\\ProductManager.cs",
+              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjectttttt\\Pustokk.BLL\\Services\\ProductManager.cs",
               "RelativeDocumentMoniker": "Pustokk.BLL\\Services\\ProductManager.cs",
-              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjectttt\\Pustokk.BLL\\Services\\ProductManager.cs",
+              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjectttttt\\Pustokk.BLL\\Services\\ProductManager.cs",
               "RelativeToolTip": "Pustokk.BLL\\Services\\ProductManager.cs",
               "ViewState": "AgIAAKoAAAAAAAAAAAAowLEAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T14:31:55.736Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T14:31:55.736Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjectttt\\Pustokk.MVC\\Controllers\\HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjectttttt\\Pustokk.MVC\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Pustokk.MVC\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjectttt\\Pustokk.MVC\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\namjoon\\source\\repos\\PustokMiniProjectttttt\\Pustokk.MVC\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Pustokk.MVC\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAI0BAAAAAAAAAAApwJkBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
